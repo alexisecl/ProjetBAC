@@ -13,3 +13,5 @@ Les données continnent différents indicateurs de réussite des établissements
  - Les effectifs
  - La filière
  - Le secteur (public/privé)
+ - Nom des lycées 
+ - Position géographique des lycées
