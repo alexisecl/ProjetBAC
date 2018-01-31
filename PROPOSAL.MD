@@ -40,7 +40,7 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 <figure>
 <p align="center"> <img src="/img/designsheet4.jpg" width=80% />
 </figure>
-<p align="center"> <i>Notre proposition  </i> </p>
+<p align="center"> <i>Design sheet n°4 : Notre proposition  </i> </p>
 
 <p align="justify"> Nous avons fait le choix d'une carte choroplèthe et non d'un cartogramme qui présentait des problèmes de clic sur des régions trop exigues et donc une contre-intuitivité à notre volonté de mettre en avant des difficultés qui pourraient être résorbées. </p>
 <p align="justify">Aussi, nous avons convenu qu'un "pie chart" pourde visualiser la constitution d'un taux de réussite par filière n'était pas très parlant et ne permettrait pas, par exemple, de cibler des filières ou des zones géographiques en difficulté. Toutefois, l'utilisation d'un "sequences sunburns" au niveau national nous parait très intéressant pour donner une idée globale de la situation française. Nous avons ainsi retenu cette solution.</p>
