@@ -9,19 +9,19 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 <p align="justify"> Nous avons guidé notre réflexion au travers de design sheet qui nous ont permis de faire murir notre réflexion et définir précisémment les types de visuels souhaités pour notre projet </p>
 
 <figure>
-<p align="center"> <img src="datashett1.jpg" width=80% />
+<p align="center"> <img src="designshett1.jpg" width=80% />
 </figure>
 <p align="center"> <i>Figure 1 : First design sheet </i> </p>
 
 <p align="justify"> Après avoir défini les différents visuels possibles pour répondre à nos interrogations nous avons soumis deux propositions, celui-ci sont illustrés au travers de nos design sheet n°2 et n°3 : </p>
 
 <figure>
-<p align="center"> <img src="datasheet2.jpg" width=80% />
+<p align="center"> <img src="designsheet2.jpg" width=80% />
 </figure>
 <p align="center"> <i>Figure 2 : Design sheet n°2 </i> </p>
 
 <figure>
-<p align="center"> <img src="datasheet3.jpg" width=80% />
+<p align="center"> <img src="designsheet3.jpg" width=80% />
 </figure>
 <p align="center"> <i>Figure 3 : Design sheet n°3 </i> </p>
 
@@ -38,7 +38,7 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 </p>
 
 <figure>
-<p align="center"> <img src="datasheet4.jpg" width=80% />
+<p align="center"> <img src="designsheet4.jpg" width=80% />
 </figure>
 <p align="center"> <i>Figure 4 : Notre proposition  </i> </p>
 
