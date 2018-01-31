@@ -17,7 +17,7 @@ Les données continnent différents indicateurs de réussite des établissements
  - Position géographique des lycées
  
 ## Auteurs
+
 <p>  Arnaud BRUGIERE</p>
 <p> Luca  GUERY </p>
 <p> Aurelien VIRELLO </p>
-<p> Ecole Centrale de Lyon</p>
