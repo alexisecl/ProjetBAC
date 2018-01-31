@@ -1,6 +1,4 @@
-# ProjetBAC
-
-Projet de cartographie des résultats du baccalauréat 2016
+# Projet de cartogrpahie des résultats du baccalauréat 2016 en France métropolitaine
 
 ## Contexte du projet
 
