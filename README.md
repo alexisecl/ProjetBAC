@@ -15,7 +15,10 @@ Les données continnent différents indicateurs de réussite des établissements
  - Le secteur (public/privé)
  - Nom des lycées 
  - Position géographique des lycées
- 
+ ## Notre proposition
+
+Les détails de notre proposition est détaillé au lien ci après : <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Notre proposition </a>
+
 ## Auteurs
 
 <p>  Arnaud BRUGIERE</p>
