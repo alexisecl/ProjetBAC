@@ -1,11 +1,5 @@
 # Projet de cartogrpahie des résultats du baccalauréat 2016 en France métropolitaine
 
-<h2> <b>Auteurs</b> </h2>
-<p>  Arnaud BRUGIERE</p>
-<p> Luca  GUERY </p>
-<p> Aurelien VIRELLO </p>
-<p> <b>Ecole Centrale de Lyon</b> </p>
-
 ## Contexte du projet
 
 Dans le cadre du cours "Visualisation Interative de Données" encadré par Romain VUILLEMOT au sein de l'école Centrale de Lyon. Nous mettons en place un projet de cartographie interactive des résultats du baccalauréat 2016 en France Métropolitaine dans les lycées d'enseignement général et technologiques.
@@ -21,3 +15,9 @@ Les données continnent différents indicateurs de réussite des établissements
  - Le secteur (public/privé)
  - Nom des lycées 
  - Position géographique des lycées
+ 
+## Auteurs
+<p>  Arnaud BRUGIERE</p>
+<p> Luca  GUERY </p>
+<p> Aurelien VIRELLO </p>
+<p> Ecole Centrale de Lyon</p>
