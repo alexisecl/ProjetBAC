@@ -26,14 +26,9 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 </figure>
 <p align="center"> <i>Figure 3 : Design sheet n°3 </i> </p>
 
-<p align="justify"> Ainsi, nous avons pu discuter autour des solutions proposées avant d'abboutir à un concensus récapitulé sur le design sheet n°4 :
-</p>
-<figure>
-<p align="center"> <img src="XXX" width=80% />
-</figure>
-<p align="center"> <i>Figure 4 : Design sheet n°4 </i> </p>
-<p align="justify">
-Nous nous sommes également interroger sur plusieurs choses :
+<p align="justify"> Ainsi, nous avons pu discuter autour des solutions proposées avant d'abboutir à un concensus
+
+Enfin, nous nous sommes également interrogé sur plusieurs choses :
 <ul>
   <li> Nos visuels permettent-ils de mettre en évidence la bonne information ? </li>
   <li> Les visuels choisis représentent t'ils au mieux les informations traitées ? </li>
