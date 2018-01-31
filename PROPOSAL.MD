@@ -1,7 +1,4 @@
 # Proposition
 
-Pour la création du design du projet nous avons utilisé la méthode
-<h2> Auteurs </h2>
-<p> Arnaud BRUGIERE</b></p>
-<p> Luca GUERY </p>
-<p> Aurélien VIRELLO </p>
+Nous avons fait le choix de nous intéresser à la cartographie de résultats du baccalauréat. 
+A partir des données extraites du site <a href="http://www.data.gouv.fr"> Open data national</a>
