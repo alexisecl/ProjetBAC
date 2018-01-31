@@ -26,12 +26,14 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 </figure>
 <p align="center"> <i>Figure 3 : Design sheet n°3 </i> </p>
 
-<p align="justify"> Ainsi, nous avons pu discuter autour des solutions proposées avant d'abboutir à un concensus
+<p align="justify"> Ainsi, nous avons pu discuter autour des solutions proposées avant d'abboutir à un concensus </p>
 
-Enfin, nous nous sommes également interrogé sur plusieurs choses :
+<p align="justify"> Enfin, nous nous sommes également interrogé sur plusieurs choses :
 <ul>
   <li> Nos visuels permettent-ils de mettre en évidence la bonne information ? </li>
   <li> Les visuels choisis représentent t'ils au mieux les informations traitées ? </li>
   <li> Quels sont les opérations que les utilisateurs devront effectuer pour utiliser notre outil de visualisation </li>
 </ul>
+</p>
+<p align="justify"> Ceci nous a donc permis de définir un plan d'action à mener pour le bon déroulement de notre projet afin de réaliser la totalité des tâches dans le temps imparti
 </p>
