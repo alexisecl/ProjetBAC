@@ -42,8 +42,10 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 </figure>
 <p align="center"> <i>Figure 4 : Notre proposition  </i> </p>
 
-<p align="justify"> Nous avons fait ce choix car nous convenu qu'un "pie chart" permettant de visualiser la constitution d'un taux de réussite par filière n'était pas très parlant et ne permettrait pas, par exemple, de cibler des filières ou des zones géographiques en difficulté. Toutefois, l'utilisation d'un "sequences sunburns" au niveau national nous parait très intéressant pour donner une idée globale de la situation française.
-De plus, la visualisation au travers d'un histogramme nous parait plus judicieuse car plus facile de lecture et plus représentative des données de réussite par filière. 
+<p align="justify"> Nous avons fait ce choix car nous convenu qu'un "pie chart" permettant de visualiser la constitution d'un taux de réussite par filière n'était pas très parlant et ne permettrait pas, par exemple, de cibler des filières ou des zones géographiques en difficulté. Toutefois, l'utilisation d'un "sequences sunburns" au niveau national nous parait très intéressant pour donner une idée globale de la situation française.</p>
+<p align="justify"> 
+De plus, la visualisation au travers d'un histogramme nous parait plus judicieuse car plus facile de lecture et plus représentative des données de réussite par filière. </p>
+<p align="justify"> 
 Ainsi notre proposition s'oriente autour d'<b>une carte choroplèthe </b> pour visualiser le taux de réussite par département et d'un <b> "sequences sunburns" </b> pour visualiser la répartition des élèves par filières et par état de l'établissement (privé ou public). 
 Ensuite, d'un clic, il sera possible de visualiser au travers d'<b>un histogramme empilé</b> le taux de réussite par filière au sein d'un département.
 </p>
