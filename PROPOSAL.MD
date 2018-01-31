@@ -1,8 +1,7 @@
 # Proposition
 
-Nous avons fait le choix de nous intéresser à la cartographie de résultats du baccalauréat. 
 <p align="justify">
-A partir des données extraites du site <a href="http://www.data.gouv.fr"> Open data gouv </a> nous avons choisi de créer une cartogrpahie des résultats du Baccalauréat par département en France métropolitaine. 
+A partir des données extraites du site <a href="http://www.data.gouv.fr"> Open data gouv </a> nous avons choisi de créer une cartogrpahie des résultats du Baccalauréat par département en France métropolitaine.
 </p>
 <p align="justify">
 Lors d'une première réflexion, nous avons décidé de présenter nos résultats sous forme de carte choroplète ou de cartogramme. Aussi les résultats précis de chaque département en fonction des filières, seraient accessibles par un simple clic sur le département.
@@ -35,5 +34,10 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
   <li> Quels sont les opérations que les utilisateurs devront effectuer pour utiliser notre outil de visualisation </li>
 </ul>
 </p>
-<p align="justify"> Ceci nous a donc permis de définir un plan d'action à mener pour le bon déroulement de notre projet afin de réaliser la totalité des tâches dans le temps imparti
+<p align="justify"> Ceci nous a donc permis de définir des visuels précis, des opérations à mettre en place ainsi que les des points clés qui pourrait nécessiter plus de temps de travail. Notre design sheet n°4 présente donc notre proposition finale :
 </p>
+
+<figure>
+<p align="center"> <img src="XXX" width=80% />
+</figure>
+<p align="center"> <i>Figure 4 : Notre proposition  </i> </p>
