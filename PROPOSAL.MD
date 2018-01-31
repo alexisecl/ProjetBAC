@@ -1,7 +1,7 @@
 # Proposition
 
 <p align="justify">
-A partir des données extraites du site <a href="http://www.data.gouv.fr"> Open data gouv </a> nous avons choisi de créer une cartogrpahie des résultats du Baccalauréat par département en France métropolitaine.
+A partir des données extraites du site <a href="http://www.data.gouv.fr"> Open data gouv </a> nous avons choisi de créer une cartogrpahie des résultats du Baccalauréat par département en France métropolitaine à partir de nos données brutes au format .csv.
 </p>
 <p align="justify">
 Lors d'une première réflexion, nous avons décidé de présenter nos résultats sous forme de carte choroplète ou de cartogramme. Aussi les résultats précis de chaque département en fonction des filières, seraient accessibles par un simple clic sur le département.
@@ -42,9 +42,10 @@ Lors d'une première réflexion, nous avons décidé de présenter nos résultat
 </figure>
 <p align="center"> <i>Figure 4 : Notre proposition  </i> </p>
 
-<p align="justify"> Nous avons fait ce choix car nous convenu qu'un "pie chart" permettant de visualiser la constitution d'un taux de réussite par filière n'était pas très parlant et ne permettrait pas, par exemple, de cibler des filières ou des zones géographiques en difficulté. Toutefois, l'utilisation d'un "sequences sunburns" au niveau national nous parait très intéressant pour donner une idée globale de la situation française.</p>
+<p align="justify"> Nous avons fait le choix d'une carte choroplèthe et non d'un cartogramme qui présentait des problèmes de clic sur des régions trop exigues et donc une contre intuitivité à notre volonté de mettre en avant des difficultés qui pourraient être résorbées par ce phénomène. </p>
+<p align="justify">Aussi, nous avons convenu qu'un "pie chart" pourde visualiser la constitution d'un taux de réussite par filière n'était pas très parlant et ne permettrait pas, par exemple, de cibler des filières ou des zones géographiques en difficulté. Toutefois, l'utilisation d'un "sequences sunburns" au niveau national nous parait très intéressant pour donner une idée globale de la situation française. Nous avons ainsi retenu cette solution.</p>
 <p align="justify"> 
-De plus, la visualisation au travers d'un histogramme nous parait plus judicieuse car plus facile de lecture et plus représentative des données de réussite par filière. </p>
+De plus, le choix d'une visualisation des précisions par filière au travers d'un histogramme nous parait judicieux car plus facile de lecture et plus représentative des données.. </p>
 <p align="justify"> 
 Ainsi notre proposition s'oriente autour d'<b>une carte choroplèthe </b> pour visualiser le taux de réussite par département et d'un <b> "sequences sunburns" </b> pour visualiser la répartition des élèves par filières et par état de l'établissement (privé ou public). 
 Ensuite, d'un clic, il sera possible de visualiser au travers d'<b>un histogramme empilé</b> le taux de réussite par filière au sein d'un département.
