@@ -28,6 +28,7 @@ Les données contiennent différents indicateurs de réussite des établissement
 
 Ce GitHub regroupe différents fichiers au format <a href="http://geojson.org/">GeoJSON</a> représentant tout ou partie du territoire français  selon différents découpages. Dans le cadre de notre projet, nous nous intéressons à la France métropolitaine avec un découpage par département.
  </p>
+ 
  ## Notre proposition
 
 Les détails de notre proposition est détaillé au lien ci après : <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Notre proposition </a>
