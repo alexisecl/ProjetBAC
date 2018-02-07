@@ -17,7 +17,11 @@ Les données contiennent différents indicateurs de réussite des établissement
  - Nom des lycées 
  - Position géographique des lycées
  
- Afin de représenter ces données sur une carte choroplèthe, nous avons récupéré les données géographiques de la France à partir du GitHub suivant: <a href="https://github.com/gregoiredavid/france-geojson">https://github.com/gregoiredavid/france-geojson</a>
+ Afin de représenter ces données sur une carte choroplèthe, nous avons récupéré les données géographiques de la France à partir du GitHub suivant: 
+ 
+<a href="https://github.com/gregoiredavid/france-geojson">https://github.com/gregoiredavid/france-geojson</a>
+
+Ce GitHub regroupe différents fichiers au format <a href="http://geojson.org/">GeoJSON</a> représentant tout ou partie du territoire français  selon différents découpages. Dans le cadre de notre projet, nous nous intéressons à la France métropolitaine avec un découpage par département.
  
  ## Notre proposition
 
