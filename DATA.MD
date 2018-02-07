@@ -62,14 +62,19 @@ Les premières colonnes du fichier contiennent des informations générales conc
 - le code commune pour agréger les résultats par département
 - le secteur, public ou privé
 
+<img src="/img/data/Data_Infos_Generales.PNG" width=80% />
+
 ### Effectifs
 
 Le deuxième groupe de données présent dans le fichier représente le nombre d'élèves à passer le bac par filière.
+
+<img src="/img/data/Data_Effectifs.PNG" width=80% />
 
 ### Taux de réussite
 
 Le troisième groupe de données présent dans le fichier représente le pourcentage d'élèves ayant obtenu le bac par filière.
 
+<img src="/img/data/Data_Taux.PNG" width=80% />
 
 #### Récapitulatif technique
 
