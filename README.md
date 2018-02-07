@@ -4,7 +4,9 @@
 <p align=justify>
 Dans le cadre du cours "Visualisation Interactive de Données" encadré par Romain VUILLEMOT au sein de l'école Centrale de Lyon, nous mettons en place un projet de visualisation interactive des résultats du baccalauréat 2016 en France Métropolitaine dans les lycées d'enseignement général et technologique, au travers d'une carte choroplèthe.
 </p>
+
 ## Source de données
+
 <p align=justify>
 Les données utilisées dans le cadre de ce projet sont fournies par le portail open data du gouvernement français et sont disponibles à l'adresse suivante: 
 </p>
