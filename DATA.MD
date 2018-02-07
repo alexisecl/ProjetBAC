@@ -40,7 +40,41 @@ Ce fichier contient chacun des départements de France Métropolitaine. Il est o
   
 Chaque feature représente ici un département, elle contient notamment un polygone qui représente les contours du département stockés sous forme d'une liste de points. Pour chacun des départements, on trouve deux propriétés, le nom du département ainsi que son code.
 
+#### Récapitulatif technique
+
 Type du fichier: Fichier GEOJSON (.geojson)
+
 Taille: 1,03 Mo
+
 Source: <a href="https://github.com/gregoiredavid/france-geojson">France Geojson</a>
 
+## Données statistiques
+
+Les données statistiques des résultats du Baccalauréat 2016 sont issues du <a href="https://www.data.gouv.fr/fr/">portail open data</a> du gouvernement français. Elles représentent les résultats des lycées d'enseignement général et technologique par filière en effectif et en taux. Le jeu de données est contenu dans un fichier excel (.xlsx)
+
+Parmi les différents groupes de données du fichier, seuls trois nous intéressent.
+
+### Informations générales
+
+Les premières colonnes du fichier contiennent des informations générales concernant les établissements à savoir. Dans le cadre de notre étude, les données intéressantes sont:
+- le code établissement qui nous sert de clé
+- le nom de l'établissement pour d'éventuelles vérifications
+- le code commune pour agréger les résultats par département
+- le secteur, public ou privé
+
+### Effectifs
+
+Le deuxième groupe de données présent dans le fichier représente le nombre d'élèves à passer le bac par filière.
+
+### Taux de réussite
+
+Le troisième groupe de données présent dans le fichier représente le pourcentage d'élèves ayant obtenu le bac par filière.
+
+
+#### Récapitulatif technique
+
+Type du fichier: Feuille de calcul Microsoft Excel (.xlsx)
+
+Taille: 651 Ko
+
+Source: <a href="https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#">data.gouv.fr</a>
