@@ -90,7 +90,7 @@
 
           json.features.forEach(function(element) {
 
-            if (element.properties.code == data[i].Departement) {
+            if (element.properties.code == data[i].Departement && data[i]["Filiere"] == "TFC") {
 
               element.properties.taux_reussite += +data[i]["Taux_reussite"] * +data[i]["Effectif"]
               element.properties.effectif_total += +data[i]["Effectif"]
@@ -105,18 +105,17 @@
           elt.properties.taux_reussite = Math.floor(elt.properties.taux_reussite / elt.properties.effectif_total * 100) / 100
         })
 
+        console.log(json.features)
 
-        console.log(json)
-        var max = d3.max(json, function(d) {
-          console.log(json)
-          return d.properties.taux_reussite;
+        var max = d3.max(json.features, function(e) {
+          return +e.properties.taux_reussite;
         });
 
-        var min = d3.min(json, function(d) {
+        var min = d3.min(json.features, function(e) {
 
-          return +d.properties.taux_reussite;
+          return +e.properties.taux_reussite;
         })
-
+        console.log(min,max)
 
         var colorScale = d3.scaleLinear().domain([min, max]).interpolate(d3.interpolateHcl).range(['#FFCDD2', '#B71C1C']);
 
