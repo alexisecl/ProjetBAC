@@ -17,3 +17,5 @@ Il sera donc lié à quatre lignes dans notre csv post-traitement (3 pour les di
 Par ailleurs, à partir de la donnée "Code_Commune", on extrait le numéro de département de sorte que l'on obtient la structure finale suivante:
 
 <img src="/img/data/Data_csv2.PNG" width=80% /> 
+
+Les deux jeux de données sont ensuite liés dans le code JavaScript.
