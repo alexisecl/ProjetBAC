@@ -14,5 +14,6 @@ L'établissement suivant ne possède des candidats que dans les filières S, ES 
 <img src="/img/data/Data_Exemple.PNG" width=80% />
 
 Il sera donc lié à quatre lignes dans notre csv post-traitement (3 pour les différentes filières + 1 pour les résultats globaux)
+Par ailleurs, à partir de la donnée "Code_Commune", on extrait le numéro de département de sorte que l'on obtient la structure finale suivante:
 
 <img src="/img/data/Data_csv.PNG" width=80% />
