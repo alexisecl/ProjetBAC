@@ -9,6 +9,8 @@
     }
 
     div.tooltip {
+      width: auto;
+      height: auto;
       color: #222;
       background-color: #fff;
       padding: .5em;
@@ -32,30 +34,94 @@
     .departement {
       fill: #000;
       stroke: #fff;
-      stroke-width: 1px;
+      stroke-width: 0.5px;
     }
 
 
-
     div {
+      border-right: solid 0.5px;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
       display: flex;
-      align-items: center;
+      flex-direction: line;
+    }
+
+    div#left,
+    #right {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    svg {
+      flex-direction: column;
+    }
+
+
+    svg#scatter {
+      background-color: none;
+    }
+
+    svg#carte {
+      background-color: none;
+    }
+
+    svg#histogramme {
+      background-color: none;
+      border-bottom: solid 0.5px;
     }
   </style>
 </head>
 
 <body>
-  <script>
-    var width = 700,
-      height = 580;
+  <div>
+    <div id='left'>
+      <svg id="carte"></svg>
+    </div>
 
-    var svg = d3.select("body")
-      .append("svg")
-      .attr("width", width)
-      .attr("height", height);
+    <div id="right">
+      <svg id='histogramme'></svg>
+      <svg id='scatter'></svg>
+    </div>
+  </div>
+
+  <script>
+    var margin = {
+      top: 30,
+      bottom: 50,
+      left: 50,
+      right: 40
+    };
+
+    var width = (window.innerWidth ||
+      document.documentElement.clientWidth ||
+      document.body.clientWidth) / 2 - margin.left - margin.right;
+
+    var height = (window.innerHeight ||
+      document.documentElement.clientHeight ||
+      document.body.clientHeight) - 2 * margin.top - 2 * margin.bottom;
+
+
+    var svg_carte = d3.select("#carte").attr('width', width + margin.left + margin.right).attr('height', height + 2 * margin.top + 2 * margin.bottom)
+
+    var svg_scatter = d3.select("#scatter")
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height / 2 + margin.top + margin.bottom)
+      .append("g")
+      .attr('id', 'scatterplot')
+      .attr("transform",
+        "translate(" + (margin.left) + "," + (margin.top) + ")");
+
+    var svg_histogramme = d3.select("#histogramme")
+      .attr('width', width + margin.left + margin.right)
+      .attr('height', height / 2 + margin.top + margin.bottom)
+
+
 
     var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800)
-      .translate([width / 2, height / 2]);
+      .translate([(width + margin.left + margin.right) / 2, height / 2 + margin.top + margin.bottom]);
 
     var path = d3.geoPath() // d3.geo.path avec d3 version 3
       .projection(projection);
@@ -64,7 +130,7 @@
     d3.csv("donnees_traitees_bac_2016.csv", function(data) {
 
       d3.json("departements.json", function(json) {
-        svg.selectAll(".departement")
+        svg_carte.selectAll(".departement")
           .data(json.features)
           .enter()
           .append("path")
@@ -75,16 +141,10 @@
         var tooltip = d3.select('body').append('div')
           .attr('class', 'hidden tooltip');
 
-
-
-
-
         json.features.forEach(function(elt) {
           elt.properties.taux_reussite = 0
           elt.properties.effectif_total = 0
         })
-
-
 
         for (var i = 0; i < data.length; i++) {
 
@@ -94,8 +154,6 @@
 
               element.properties.taux_reussite += +data[i]["Taux_reussite"] * +data[i]["Effectif"]
               element.properties.effectif_total += +data[i]["Effectif"]
-
-
             }
           })
 
@@ -105,8 +163,6 @@
           elt.properties.taux_reussite = Math.floor(elt.properties.taux_reussite / elt.properties.effectif_total * 100) / 100
         })
 
-        console.log(json.features)
-
         var max = d3.max(json.features, function(e) {
           return +e.properties.taux_reussite;
         });
@@ -115,32 +171,28 @@
 
           return +e.properties.taux_reussite;
         })
-        console.log(min,max)
 
-        var colorScale = d3.scaleLinear().domain([min, max]).interpolate(d3.interpolateHcl).range(['#FFCDD2', '#B71C1C']);
+        var colorScale = d3.scaleLinear().domain([min, max]).interpolate(d3.interpolateHcl).range(['#FFEBEE', '#B71C1C']);
 
-        svg.selectAll(".departement")
+
+        svg_carte.selectAll(".departement")
           .style("fill", function(d) {
-
             return colorScale(d.properties.taux_reussite)
-
           })
           .on('mouseover', function(d) {
-            d3.select(this).style("fill", function(d) {
-
-                return colorScale(d.properties.taux_reussite)
-
-              })
+            d3.select(this).style("fill", '#BDBDBD')
               .style("opacity", 0.5)
           })
           .on('mousemove', function(d) {
-            var mouse = d3.mouse(svg.node()).map(function(d) {
+            var mouse = d3.mouse(svg_carte.node()).map(function(d) {
               return parseInt(d);
             });
             tooltip.classed('hidden', false)
               .attr('style', 'left:' + (mouse[0] + 5) +
                 'px; top:' + (mouse[1] - 5) + "px;")
-              .html("<b>" + d.properties.nom + "</b>" + ':\n' + d.properties.taux_reussite + "%");
+              .html("Département: " + d.properties.nom +
+                "<br/>Taux de réussite: " + d.properties.taux_reussite + "%" +
+                "<br/>Effectif total: " + d.properties.effectif_total + " élèves");
           })
           .on('mouseout', function() {
             tooltip.classed('hidden', true);
@@ -149,8 +201,224 @@
               return colorScale(d.properties.taux_reussite)
 
             }).style("opacity", 1)
+          })
+          .on("click", function(d) {
+            getScatterDepartement(d.properties.code)
+
           });
 
+        svg_carte.append('text')
+          .attr("x", (width + margin.left + margin.right) / 2)
+          .attr("y", 30)
+          .attr("text-anchor", "middle").text("Taux de réussite au BAC toutes filières confondues").style("fill", "black")
+          .style("font-family", "Arial")
+          .style("font-size", 10)
+          .style("font-style", 'italic');
+
+        d3.select("#scatter").append('text')
+          .attr('id', 'labelScatter')
+          .attr("x", (width + margin.left + margin.right) / 2)
+          .attr("y", 15)
+          .attr("text-anchor", "middle").text("Taux de réussite par département en fonction des effectifs toutes filières confondues").style("fill", "black")
+          .style("font-family", "Arial")
+          .style("font-size", '0.8em')
+          .style("font-style", 'italic');
+
+
+
+        min_eff = d3.min(json.features, function(d) {
+          return +d.properties.effectif_total;
+        })
+        max_eff = d3.max(json.features, function(d) {
+          return +d.properties.effectif_total;
+        })
+
+        min_reussite = d3.min(json.features, function(d) {
+          return +d.properties.taux_reussite;
+        })
+
+        max_reussite = d3.max(json.features, function(d) {
+          return +d.properties.taux_reussite;
+        })
+
+        var xScale = d3.scaleLinear()
+          .domain([min_eff, max_eff])
+          .range([0, width]);
+
+        var yScale = d3.scaleLinear()
+          .domain([min_reussite, max_reussite])
+          .range([height / 2, 0]);
+
+        //Add the x Axis and its label
+        svg_scatter.append("g")
+          .attr('id', 'xAxis')
+          .attr("transform", "translate(0," + height / 2 + ")")
+          .call(d3.axisBottom(xScale));
+
+        svg_scatter.append("text")
+          .attr('id', 'xAxisLabel')
+          .attr("transform",
+            "translate(" + (width / 2) + " ," +
+            (height / 2 + margin.top) + ")")
+          .style("text-anchor", "middle")
+          .style("font-size", '0.8em')
+          .attr("dy", "0.2em")
+          .text("Effectif");;
+
+        // Add the y Axis
+        svg_scatter.append("g")
+          .attr('id', 'yAxis')
+          .call(d3.axisLeft(yScale));
+
+        svg_scatter.append("text")
+          .attr('id', 'yAxisLabel')
+          .attr("transform", "rotate(-90)")
+          .attr("y", 0 - margin.left)
+          .attr("x", 0 - (height / 4))
+          .attr("dy", "1.5em")
+          .style("text-anchor", "middle")
+          .text("Taux de réussite")
+          .style("font-size", '0.8em');
+
+        svg_scatter.append('g').attr('id', 'france').selectAll("#scatterplot")
+
+          .data(json.features)
+          .enter()
+          .append("svg:circle")
+          .attr("cx", function(d) {
+            return xScale(d.properties.effectif_total);
+          })
+          .attr("cy", function(d) {
+            return yScale(d.properties.taux_reussite);
+          })
+          .attr("r", 3)
+          .attr('class', 'point')
+          .attr("d", d3.symbol().type(d3.symbolCircle))
+        /*.attr("transform", function(d) {
+          return "translate(" + xScale(d.properties.effectif_total) + "," +
+            yScale(d.properties.taux_reussite) + ")";
+        });*/
+
+
+        data_filtered_total = [];
+        colorSet = []
+        dep_clicked = []
+
+        // add legend
+        var legend = d3.select("#scatter").append("g")
+          .attr("class", "legend")
+          //.attr("height", 100)
+          //.attr("width", 100)
+          .attr('transform', 'translate(0,' + margin.top + ')')
+
+
+        function getScatterDepartement(dep) {
+          filiere = "S"
+          data_filtered = data.filter(function(d) {
+
+            if (d["Filiere"] == filiere & d["Departement"] == dep) {
+              return d;
+            }
+
+          })
+
+          d3.select("#scatter").select('#labelScatter').text("Taux de réussite par lycée en filière " + filiere + " en fonction des effectifs")
+          data_filtered_total.push(data_filtered);
+          var merged = [].concat.apply([], data_filtered_total);
+
+          min_eff = d3.min(merged, function(d) {
+            return +d["Effectif"];
+          })
+          max_eff = d3.max(merged, function(d) {
+            //console.log("normal",d)
+            return +d["Effectif"];
+          })
+
+          min_reussite = d3.min(merged, function(d) {
+            return +d["Taux_reussite"];
+          })
+
+          max_reussite = d3.max(merged, function(d) {
+            return +d["Taux_reussite"];
+          })
+
+          var xScale = d3.scaleLinear()
+            .domain([min_eff, max_eff])
+            .range([0, width]);
+
+          var yScale = d3.scaleLinear()
+            .domain([min_reussite, max_reussite])
+            .range([height / 2, 0]);
+
+          svg_scatter.selectAll("#xAxis")
+            .call(d3.axisBottom(xScale));
+
+          svg_scatter.selectAll("#yAxis")
+            .call(d3.axisLeft(yScale));
+
+          var colorScale_Scatter = d3.scaleOrdinal(d3.schemeCategory10).domain(d3.range(0, 100));
+
+          if (!dep_clicked.includes(dep)) {
+            dep_clicked.push(dep)
+            colorSet.push(colorScale_Scatter(dep))
+          }
+
+          svg_scatter.select('#france').selectAll(".point").remove();
+
+          svg_scatter. /*append("g").attr('id',dep).*/ selectAll(".point").remove()
+
+          svg_scatter.selectAll(".point").data(merged)
+            .enter()
+            .append("svg:circle")
+            .attr("cx", function(d) {
+              return xScale(d["Effectif"]);
+            })
+            .attr("cy", function(d) {
+              return yScale(d["Taux_reussite"]);
+            })
+            .attr("r", 3)
+            //.append("path")
+            .attr('class', 'point')
+            //.attr("d", d3.symbol().type(d3.symbolCircle))
+            .attr("stroke", function(d) {
+              return colorScale_Scatter(d["Departement"]);
+            })
+            .attr("stroke-width", 2)
+            .attr("fill", 'white')
+
+
+          legend.selectAll('rect')
+            .data(colorSet)
+            .enter()
+            .append("rect")
+            .attr("x", width + margin.left)
+            .attr("y", function(d, i) {
+              return i * 20;
+            })
+            .attr("width", 10)
+            .attr("height", 10)
+            .style("fill", function(d, i) {
+              return colorSet[i];
+            })
+
+          legend.selectAll('text')
+            .data(dep_clicked)
+            .enter()
+            .append("text")
+            .attr("x", width + margin.left+11)
+            .attr("y", function(d, i) {
+              return i * 20 + 9;
+            })
+            .style("font-size", '0.8em')
+            .text(function(d,i) {
+              return dep_clicked[i];
+            });
+
+          /*.attr("transform", function(d) {
+            return "translate(" + xScale(d["Effectif"]) + "," +
+              yScale(d["Taux_reussite"]) + ")";
+          });*/
+        }
       });
     });
   </script>
