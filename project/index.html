@@ -9,6 +9,7 @@
     }
 
     div.tooltip {
+      border-right: solid 0px;
       width: auto;
       height: auto;
       color: #222;
@@ -88,11 +89,109 @@
   </div>
 
   <script>
+    depFr = {};
+    depFr["01"] = "Ain";
+    depFr["02"] = "Aisne";
+    depFr["03"] = "Allier";
+    depFr["04"] = "Alpes-de-Haute-Provence";
+    depFr["06"] = "Alpes-Maritimes";
+    depFr["07"] = "Ardèche";
+    depFr["08"] = "Ardennes";
+    depFr["09"] = "Ariège";
+    depFr["10"] = "Aube";
+    depFr["11"] = "Aude";
+    depFr["12"] = "Aveyron";
+    depFr["67"] = "Bas-Rhin";
+    depFr["13"] = "Bouches-du-Rhône";
+    depFr["14"] = "Calvados";
+    depFr["15"] = "Cantal";
+    depFr["16"] = "Charente";
+    depFr["17"] = "Charente-Maritime";
+    depFr["18"] = "Cher";
+    depFr["19"] = "Corrèze";
+    depFr["2A"] = "Corse-du-Sud";
+    depFr["21"] = "Côte-d'Or";
+    depFr["22"] = "Côtes-d'Armor";
+    depFr["23"] = "Creuse";
+    depFr["79"] = "Deux-Sèvres";
+    depFr["24"] = "Dordogne";
+    depFr["25"] = "Doubs";
+    depFr["26"] = "Drôme";
+    depFr["91"] = "Essonne";
+    depFr["27"] = "Eure";
+    depFr["28"] = "Eure-et-Loir";
+    depFr["29"] = "Finistère";
+    depFr["30"] = "Gard";
+    depFr["32"] = "Gers";
+    depFr["33"] = "Gironde";
+    depFr["05"] = "Hautes-Alpes";
+    depFr["65"] = "Hautes-Pyrénées";
+    depFr["2B"] = "Haute-Corse";
+    depFr["31"] = "Haute-Garonne";
+    depFr["43"] = "Haute-Loire";
+    depFr["52"] = "Haute-Marne";
+    depFr["70"] = "Haute-Saône";
+    depFr["74"] = "Haute-Savoie";
+    depFr["87"] = "Haute-Vienne";
+    depFr["92"] = "Hauts-de-Seine";
+    depFr["68"] = "Haut-Rhin";
+    depFr["34"] = "Hérault";
+    depFr["35"] = "Ille-et-Vilaine";
+    depFr["36"] = "Indre";
+    depFr["37"] = "Indre-et-Loire";
+    depFr["38"] = "Isère";
+    depFr["39"] = "Jura";
+    depFr["40"] = "Landes";
+    depFr["42"] = "Loire";
+    depFr["45"] = "Loiret";
+    depFr["44"] = "Loire-Atlantique";
+    depFr["41"] = "Loir-et-Cher";
+    depFr["46"] = "Lot";
+    depFr["47"] = "Lot-et-Garonne";
+    depFr["48"] = "Lozère";
+    depFr["49"] = "Maine-et-Loire";
+    depFr["50"] = "Manche";
+    depFr["51"] = "Marne";
+    depFr["53"] = "Mayenne";
+    depFr["54"] = "Meurthe-et-Moselle";
+    depFr["55"] = "Meuse";
+    depFr["56"] = "Morbihan";
+    depFr["57"] = "Moselle";
+    depFr["58"] = "Nièvre";
+    depFr["59"] = "Nord";
+    depFr["60"] = "Oise";
+    depFr["61"] = "Orne";
+    depFr["75"] = "Paris";
+    depFr["62"] = "Pas-de-Calais";
+    depFr["63"] = "Puy-de-Dôme";
+    depFr["64"] = "Pyrénées-Atlantiques";
+    depFr["66"] = "Pyrénées-Orientales";
+    depFr["69"] = "Rhône";
+    depFr["71"] = "Saône-et-Loire";
+    depFr["72"] = "Sarthe";
+    depFr["73"] = "Savoie";
+    depFr["93"] = "Seine-Saint-Denis";
+    depFr["76"] = "Seine-Maritime";
+    depFr["77"] = "Seine-et-Marne";
+    depFr["80"] = "Somme";
+    depFr["81"] = "Tarn";
+    depFr["82"] = "Tarn-et-Garonne";
+    depFr["90"] = "Territoire de Belfort";
+    depFr["94"] = "Val-de-Marne";
+    depFr["95"] = "Val-d'Oise";
+    depFr["83"] = "Var";
+    depFr["84"] = "Vaucluse";
+    depFr["85"] = "Vendée";
+    depFr["86"] = "Vienne";
+    depFr["88"] = "Vosges";
+    depFr["89"] = "Yonne";
+    depFr["78"] = "Yvelines";
+
     var margin = {
       top: 30,
-      bottom: 50,
-      left: 50,
-      right: 40
+      bottom: 40,
+      left: 40,
+      right: 80
     };
 
     var width = (window.innerWidth ||
@@ -138,8 +237,11 @@
           .attr("d", path);
 
 
-        var tooltip = d3.select('body').append('div')
+        var tooltip_carte = d3.select('body').append('div')
           .attr('class', 'hidden tooltip');
+
+        var tooltip_scatter = d3.select('body').append('div')
+            .attr('class', 'hidden tooltip');
 
         json.features.forEach(function(elt) {
           elt.properties.taux_reussite = 0
@@ -187,7 +289,7 @@
             var mouse = d3.mouse(svg_carte.node()).map(function(d) {
               return parseInt(d);
             });
-            tooltip.classed('hidden', false)
+            tooltip_carte.classed('hidden', false)
               .attr('style', 'left:' + (mouse[0] + 5) +
                 'px; top:' + (mouse[1] - 5) + "px;")
               .html("Département: " + d.properties.nom +
@@ -195,7 +297,7 @@
                 "<br/>Effectif total: " + d.properties.effectif_total + " élèves");
           })
           .on('mouseout', function() {
-            tooltip.classed('hidden', true);
+            tooltip_carte.classed('hidden', true);
             d3.select(this).style("fill", function(d) {
 
               return colorScale(d.properties.taux_reussite)
@@ -206,6 +308,8 @@
             getScatterDepartement(d.properties.code)
 
           });
+
+
 
         svg_carte.append('text')
           .attr("x", (width + margin.left + margin.right) / 2)
@@ -313,7 +417,7 @@
 
 
         function getScatterDepartement(dep) {
-          filiere = "S"
+          filiere = "TFC"
           data_filtered = data.filter(function(d) {
 
             if (d["Filiere"] == filiere & d["Departement"] == dep) {
@@ -405,14 +509,39 @@
             .data(dep_clicked)
             .enter()
             .append("text")
-            .attr("x", width + margin.left+11)
+            .attr("x", width + margin.left + 11)
             .attr("y", function(d, i) {
               return i * 20 + 9;
             })
             .style("font-size", '0.8em')
-            .text(function(d,i) {
-              return dep_clicked[i];
+            .text(function(d, i) {
+              return depFr[dep_clicked[i]];
             });
+
+            svg_scatter.selectAll(".point")
+              .on('mouseover', function(d) {
+                console.log(d)
+                d3.select(this).style("fill", '#BDBDBD')
+                  .style("opacity", 0.5)
+              })
+              .on('mousemove', function(d) {
+                var mouse = d3.mouse(svg_carte.node()).map(function(d) {
+                  return parseInt(d);
+                });
+                tooltip_scatter.classed('hidden', false)
+                  .attr('style', 'left:' + (mouse[0] + 5) +
+                    'px; top:' + (mouse[1] - 5) + "px;")
+                  .html("Établissement: " + d.Etablissement
+                    );
+              })
+              .on('mouseout', function() {
+                tooltip_scatter.classed('hidden', true);
+                d3.select(this).style("stroke", function(d,i) {
+
+                  return colorSet[i]
+
+                }).style("fill",'white').style("opacity", 1)
+              });
 
           /*.attr("transform", function(d) {
             return "translate(" + xScale(d["Effectif"]) + "," +
