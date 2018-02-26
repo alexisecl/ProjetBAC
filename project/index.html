@@ -35,7 +35,7 @@
     .departement {
       fill: #000;
       stroke: #fff;
-      stroke-width: 0.5px;
+      stroke-width: 0px;
     }
 
 
@@ -50,6 +50,13 @@
 
     div#left,
     #right {
+      width: 50%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    div#left {
       width: 50%;
       height: 100%;
       display: flex;
@@ -78,6 +85,7 @@
 
 <body>
   <div>
+
     <div id='left'>
       <svg id="carte"></svg>
     </div>
@@ -86,9 +94,11 @@
       <svg id='histogramme'></svg>
       <svg id='scatter'></svg>
     </div>
+
   </div>
 
   <script>
+    filiere = "TFC"
     depFr = {};
     depFr["01"] = "Ain";
     depFr["02"] = "Aisne";
@@ -190,7 +200,7 @@
     var margin = {
       top: 30,
       bottom: 40,
-      left: 40,
+      left: 50,
       right: 80
     };
 
@@ -202,7 +212,7 @@
       document.documentElement.clientHeight ||
       document.body.clientHeight) - 2 * margin.top - 2 * margin.bottom;
 
-
+    //Définition de nos trois SVG : carte choroplète, histogramme et nuage de points
     var svg_carte = d3.select("#carte").attr('width', width + margin.left + margin.right).attr('height', height + 2 * margin.top + 2 * margin.bottom)
 
     var svg_scatter = d3.select("#scatter")
@@ -217,14 +227,23 @@
       .attr('width', width + margin.left + margin.right)
       .attr('height', height / 2 + margin.top + margin.bottom)
 
-
-
-    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(2800)
+    //Définition de notre path pour la carte de la France
+    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(3000)
       .translate([(width + margin.left + margin.right) / 2, height / 2 + margin.top + margin.bottom]);
 
     var path = d3.geoPath() // d3.geo.path avec d3 version 3
       .projection(projection);
 
+    //Définition des tooltips associés à chaque visualisation graphique
+    var tooltip_carte = d3.select('body').append('div')
+      .attr('class', 'hidden tooltip');
+
+    var tooltip_scatter_france = d3.select('body').append('div')
+      .attr('class', 'hidden tooltip');
+
+    var tooltip_scatter = d3.select('body').append('div')
+      .attr('class', 'hidden tooltip');
+    var dep_removed;
 
     d3.csv("donnees_traitees_bac_2016.csv", function(data) {
 
@@ -236,47 +255,51 @@
           .attr('class', 'departement')
           .attr("d", path);
 
-
-        var tooltip_carte = d3.select('body').append('div')
-          .attr('class', 'hidden tooltip');
-
-        var tooltip_scatter = d3.select('body').append('div')
-            .attr('class', 'hidden tooltip');
-
-        json.features.forEach(function(elt) {
-          elt.properties.taux_reussite = 0
-          elt.properties.effectif_total = 0
-        })
-
-        for (var i = 0; i < data.length; i++) {
-
-          json.features.forEach(function(element) {
-
-            if (element.properties.code == data[i].Departement && data[i]["Filiere"] == "TFC") {
-
-              element.properties.taux_reussite += +data[i]["Taux_reussite"] * +data[i]["Effectif"]
-              element.properties.effectif_total += +data[i]["Effectif"]
-            }
+        //Ajout de l'information (taux reussite & effectif) contenue dans le CSV dans notre JSON
+        //selon la filière sélectionnée
+        function getTauxEffectifFiliere(filiere) {
+          json.features.forEach(function(elt) {
+            elt.properties.taux_reussite = 0
+            elt.properties.effectif_total = 0
           })
-
+          for (var i = 0; i < data.length; i++) {
+            json.features.forEach(function(element) {
+              if (element.properties.code == data[i].Departement && data[i]["Filiere"] == filiere) {
+                element.properties.taux_reussite += +data[i]["Taux_reussite"] * +data[i]["Effectif"]
+                element.properties.effectif_total += +data[i]["Effectif"]
+              }
+            })
+          }
+          json.features.forEach(function(elt) {
+            elt.properties.taux_reussite = Math.floor(elt.properties.taux_reussite / elt.properties.effectif_total * 10) / 10
+          })
         }
 
-        json.features.forEach(function(elt) {
-          elt.properties.taux_reussite = Math.floor(elt.properties.taux_reussite / elt.properties.effectif_total * 100) / 100
+        getTauxEffectifFiliere(filiere);
+
+
+        //Définition du gradient de couleur pour la carte choroplète et les nuages de points France
+        //en fonction du min et max du taux de réussite pour la filière sélectionnée
+        //calcul min max effectif pour les axes du nuage de points
+        min_eff = d3.min(json.features, function(d) {
+          return +d.properties.effectif_total;
+        })
+        max_eff = d3.max(json.features, function(d) {
+          return +d.properties.effectif_total;
         })
 
-        var max = d3.max(json.features, function(e) {
-          return +e.properties.taux_reussite;
+        min_reussite = d3.min(json.features, function(d) {
+          return +d.properties.taux_reussite;
+        })
+
+        max_reussite = d3.max(json.features, function(d) {
+          return +d.properties.taux_reussite;
         });
 
-        var min = d3.min(json.features, function(e) {
+        var colorScale = d3.scaleLinear().domain([min_reussite, max_reussite]).interpolate(d3.interpolateHcl).range(['#FFEBEE', '#B71C1C']);
 
-          return +e.properties.taux_reussite;
-        })
-
-        var colorScale = d3.scaleLinear().domain([min, max]).interpolate(d3.interpolateHcl).range(['#FFEBEE', '#B71C1C']);
-
-
+        //On initialise la carte choroplèthe avec les données ajoutées plus haut
+        //ainsi que tous les events listeners MouseOver,MouseMove, MouseOut, onClick
         svg_carte.selectAll(".departement")
           .style("fill", function(d) {
             return colorScale(d.properties.taux_reussite)
@@ -305,20 +328,22 @@
             }).style("opacity", 1)
           })
           .on("click", function(d) {
-            getScatterDepartement(d.properties.code)
+            getScatterDepartement(d.properties.code,filiere)
+            console.log(dep_removed)
+            d3.select(this).style("stroke", dictColorDep[d.properties.code]).style('stroke-width', '2px')
 
-          });
+          })
 
-
-
+        //On initialise le Titre de la carte choroplèthe
         svg_carte.append('text')
           .attr("x", (width + margin.left + margin.right) / 2)
           .attr("y", 30)
-          .attr("text-anchor", "middle").text("Taux de réussite au BAC toutes filières confondues").style("fill", "black")
+          .attr("text-anchor", "middle").text("Taux de réussite au BAC en 2016 toutes filières confondues").style("fill", "black")
           .style("font-family", "Arial")
-          .style("font-size", 10)
+          .style("font-size", '0.8em')
           .style("font-style", 'italic');
 
+        //On initialise le Titre du nuage de points
         d3.select("#scatter").append('text')
           .attr('id', 'labelScatter')
           .attr("x", (width + margin.left + margin.right) / 2)
@@ -328,23 +353,7 @@
           .style("font-size", '0.8em')
           .style("font-style", 'italic');
 
-
-
-        min_eff = d3.min(json.features, function(d) {
-          return +d.properties.effectif_total;
-        })
-        max_eff = d3.max(json.features, function(d) {
-          return +d.properties.effectif_total;
-        })
-
-        min_reussite = d3.min(json.features, function(d) {
-          return +d.properties.taux_reussite;
-        })
-
-        max_reussite = d3.max(json.features, function(d) {
-          return +d.properties.taux_reussite;
-        })
-
+        //Définition des échelles pour les axes x et y
         var xScale = d3.scaleLinear()
           .domain([min_eff, max_eff])
           .range([0, width]);
@@ -369,7 +378,7 @@
           .attr("dy", "0.2em")
           .text("Effectif");;
 
-        // Add the y Axis
+        // Add the y Axis and its label
         svg_scatter.append("g")
           .attr('id', 'yAxis')
           .call(d3.axisLeft(yScale));
@@ -384,11 +393,17 @@
           .text("Taux de réussite")
           .style("font-size", '0.8em');
 
+        //On initialise les points du nuage avec les données ajoutées sur le json
+        //qui dépendent de la filière sélectionnée. On a une distribution des départements
         svg_scatter.append('g').attr('id', 'france').selectAll("#scatterplot")
-
           .data(json.features)
           .enter()
           .append("svg:circle")
+          .style("stroke", function(d) {
+            return colorScale(d.properties.taux_reussite)
+          })
+          .style("fill", 'white')
+          .style("stroke-width", 2)
           .attr("cx", function(d) {
             return xScale(d.properties.effectif_total);
           })
@@ -397,44 +412,69 @@
           })
           .attr("r", 3)
           .attr('class', 'point')
-          .attr("d", d3.symbol().type(d3.symbolCircle))
-        /*.attr("transform", function(d) {
-          return "translate(" + xScale(d.properties.effectif_total) + "," +
-            yScale(d.properties.taux_reussite) + ")";
-        });*/
+
+        //Ajout des events listeners sur le nuage de point
+        svg_scatter.selectAll(".point")
+          .on('mouseover', function(d) {
+            d3.select(this).style("fill", '#BDBDBD')
+              .style("opacity", 0.5)
+          })
+          .on('mousemove', function(d) {
+            var mouse = d3.mouse(svg_carte.node()).map(function(d) {
+              return parseInt(d);
+            });
+            tooltip_scatter_france.classed('hidden', false)
+              .attr('style', 'left:' + (mouse[0] + 5) +
+                'px; top:' + (mouse[1] - 5) + "px;")
+              .html(depFr[d.properties.code]);
+          })
+          .on('mouseout', function() {
+            tooltip_scatter_france.classed('hidden', true);
+            d3.select(this).style("stroke", function(d) {
+              return colorScale(d.properties.taux_reussite)
+            }).style("opacity", 1).style("fill",'white')
+          });
 
 
+        //Initialisation des variables qui vont permettre de gérer l'interaction carte/nuage de points
         data_filtered_total = [];
-        colorSet = []
+        colorSet_init = ["#81D4FA", "#1A237E", "#00897B", "#E65100", "#FFC107"]
         dep_clicked = []
+        colorSet = []
+        dictColorDep = {}
 
-        // add legend
+        //Add legend for the selected department
         var legend = d3.select("#scatter").append("g")
           .attr("class", "legend")
-          //.attr("height", 100)
-          //.attr("width", 100)
+          .attr('id', 'legend')
           .attr('transform', 'translate(0,' + margin.top + ')')
 
+        //Fonction qui filtre les données du CSV suivant le département sélectionné sur la carte choroplète
+        //et qui les affiche
+        function getScatterDepartement(dep,filiere) {
 
-        function getScatterDepartement(dep) {
-          filiere = "TFC"
           data_filtered = data.filter(function(d) {
-
             if (d["Filiere"] == filiere & d["Departement"] == dep) {
               return d;
             }
-
           })
 
           d3.select("#scatter").select('#labelScatter').text("Taux de réussite par lycée en filière " + filiere + " en fonction des effectifs")
-          data_filtered_total.push(data_filtered);
+
+          if (data_filtered_total.length < 5 & !dep_clicked.includes(dep)) {
+            data_filtered_total.push(data_filtered);
+          } else {
+            if (!dep_clicked.includes(dep)) {
+              data_filtered_total.shift()
+              data_filtered_total.push(data_filtered);
+            }
+          }
           var merged = [].concat.apply([], data_filtered_total);
 
           min_eff = d3.min(merged, function(d) {
             return +d["Effectif"];
           })
           max_eff = d3.max(merged, function(d) {
-            //console.log("normal",d)
             return +d["Effectif"];
           })
 
@@ -460,16 +500,24 @@
           svg_scatter.selectAll("#yAxis")
             .call(d3.axisLeft(yScale));
 
-          var colorScale_Scatter = d3.scaleOrdinal(d3.schemeCategory10).domain(d3.range(0, 100));
-
-          if (!dep_clicked.includes(dep)) {
+          if (!dep_clicked.includes(dep) & dep_clicked.length < 5) {
             dep_clicked.push(dep)
-            colorSet.push(colorScale_Scatter(dep))
+            dictColorDep[dep] = colorSet_init[data_filtered_total.length - 1]
+            colorSet.push(colorSet_init[data_filtered_total.length - 1])
+          } else {
+            if (!dep_clicked.includes(dep)) {
+              dep_removed = dep_clicked.shift();
+              delete dictColorDep[dep_removed];
+              dep_clicked.push(dep)
+              var color_removed = colorSet.shift()
+              colorSet.push(color_removed)
+              dictColorDep[dep] = color_removed
+            }
           }
 
           svg_scatter.select('#france').selectAll(".point").remove();
 
-          svg_scatter. /*append("g").attr('id',dep).*/ selectAll(".point").remove()
+          svg_scatter.selectAll(".point").remove();
 
           svg_scatter.selectAll(".point").data(merged)
             .enter()
@@ -481,72 +529,67 @@
               return yScale(d["Taux_reussite"]);
             })
             .attr("r", 3)
-            //.append("path")
             .attr('class', 'point')
-            //.attr("d", d3.symbol().type(d3.symbolCircle))
             .attr("stroke", function(d) {
-              return colorScale_Scatter(d["Departement"]);
+              return dictColorDep[d["Departement"]];
             })
             .attr("stroke-width", 2)
             .attr("fill", 'white')
 
-
+          legend.selectAll('rect').remove();
           legend.selectAll('rect')
             .data(colorSet)
             .enter()
             .append("rect")
             .attr("x", width + margin.left)
             .attr("y", function(d, i) {
-              return i * 20;
+              return -20 + i * 20;
             })
             .attr("width", 10)
             .attr("height", 10)
             .style("fill", function(d, i) {
               return colorSet[i];
             })
-
+          legend.selectAll('text').remove()
           legend.selectAll('text')
             .data(dep_clicked)
             .enter()
             .append("text")
             .attr("x", width + margin.left + 11)
             .attr("y", function(d, i) {
-              return i * 20 + 9;
+              return -20 + i * 20 + 9;
             })
             .style("font-size", '0.8em')
             .text(function(d, i) {
-              return depFr[dep_clicked[i]];
+              var str = depFr[dep_clicked[i]];
+              if (str.length > 10) str = str.substring(0, 10) + '..';
+              return str;
             });
 
-            svg_scatter.selectAll(".point")
-              .on('mouseover', function(d) {
-                console.log(d)
-                d3.select(this).style("fill", '#BDBDBD')
-                  .style("opacity", 0.5)
-              })
-              .on('mousemove', function(d) {
-                var mouse = d3.mouse(svg_carte.node()).map(function(d) {
-                  return parseInt(d);
-                });
-                tooltip_scatter.classed('hidden', false)
-                  .attr('style', 'left:' + (mouse[0] + 5) +
-                    'px; top:' + (mouse[1] - 5) + "px;")
-                  .html("Établissement: " + d.Etablissement
-                    );
-              })
-              .on('mouseout', function() {
-                tooltip_scatter.classed('hidden', true);
-                d3.select(this).style("stroke", function(d,i) {
-
-                  return colorSet[i]
-
-                }).style("fill",'white').style("opacity", 1)
+          svg_scatter.selectAll(".point")
+            .on('mouseover', function(d) {
+              d3.select(this).style("fill", '#BDBDBD')
+                .style("opacity", 0.5)
+            })
+            .on('mousemove', function(d) {
+              var mouse = d3.mouse(svg_carte.node()).map(function(d) {
+                return parseInt(d);
               });
+              tooltip_scatter.classed('hidden', false)
+                .attr('style', 'left:' + (mouse[0] + 5) +
+                  'px; top:' + (mouse[1] - 5) + "px;")
+                .html("Établissement: " + d.Etablissement);
+            })
+            .on('mouseout', function() {
+              tooltip_scatter.classed('hidden', true);
+              d3.select(this).style("stroke", function(d, i) {
+                console.log(d,i)
+                return dictColorDep[d["Departement"]]
 
-          /*.attr("transform", function(d) {
-            return "translate(" + xScale(d["Effectif"]) + "," +
-              yScale(d["Taux_reussite"]) + ")";
-          });*/
+              }).style("fill", 'white').style("opacity", 1)
+            });
+
+
         }
       });
     });
