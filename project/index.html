@@ -520,8 +520,9 @@
         function initHisto(departement) {
 
           svg_histogramme.select('#rects').remove();
+          svg_histogramme.select('#yAxisLabel').remove();
 
-          
+
 
           if (departement == null) {
             data_filtered_histo = data.filter(function(d) {
@@ -536,8 +537,6 @@
               }
             })
           }
-
-          console.log(data_filtered_histo)
 
           data_reshaped = d3.nest()
             .key(function(d) {
@@ -559,8 +558,6 @@
             })
             .entries(data_filtered_histo);
 
-            console.log(data_reshaped)
-
           var m = data_reshaped.length
 
           dataFormat = d3.range(m).map(function(index) {
@@ -573,6 +570,7 @@
             });
           })
 
+
           dataFormat_taux = d3.range(m).map(function(index) {
             return d3.range(n).map(function(i) {
               if (data_reshaped[index].values[i] == null || data_reshaped[index] == null) {
@@ -582,7 +580,6 @@
               } //data_reshaped[index].values[i].value.avg_stock_value * 10) / 10
             });
           })
-
 
           data_stacked = d3.stack().keys(d3.range(n))(dataFormat)
 
@@ -598,13 +595,20 @@
 
           var y = d3.scaleLinear()
             .domain([0, max_effectif])
-            .rangeRound([height / 2, 0])
+            .range([height / 2, 0])
             .nice();
 
           var y_bis = d3.scaleLinear()
-            .domain([85, max_taux_reussite])
-            .rangeRound([0, height / 2])
-          //.nice();
+            .domain([100, 85])
+            .rangeRound([height / 2, 0])
+            .nice();
+
+          var y_bis_bis = d3.scaleLinear()
+            .domain([85, 100])
+            .rangeRound([height / 2, 0])
+            .nice();
+
+          console.log(height / 2, y_bis(100))
 
           var x = d3.scaleBand()
             .rangeRound([0, width])
@@ -646,7 +650,7 @@
           svg_histogramme.append("text")
             .attr('id', 'yAxisLabel')
             .attr("transform", "rotate(-90)")
-            .attr("y", 0 - margin.left - 30)
+            .attr("y", 0 - margin.left - 20)
             .attr("x", 0 - (height / 4))
             .attr("dy", "1.5em")
             .style("text-anchor", "middle")
@@ -657,7 +661,6 @@
             .call(d3.axisBottom(x).ticks(tickLabels.length).tickFormat(function(d, i) {
               return tickLabels[i];
             }));
-
           svg_histogramme.selectAll("#yAxis")
             .call(d3.axisLeft(y));
 
@@ -687,12 +690,17 @@
 
 
           svg_histogramme.select("#rects").selectAll("g").on('click', function() {
-            svg_histogramme.select("#rects").selectAll("g").data(d3.stack().keys(d3.range(n))(dataFormat_taux)).each(function(d, index) {
+            if (is_stacked) {
+              svg_histogramme.select('#yAxisLabel').text("Taux de réussite (en %)")
+              svg_histogramme.selectAll("#yAxis")
+                .call(d3.axisLeft(y_bis_bis));
 
-              d3.select(this).selectAll("rect").data(function(d) {
-                return d;
-              }).each(function(e, i) {
-                if (is_stacked) {
+              svg_histogramme.select("#rects").selectAll("g").data(d3.stack().keys(d3.range(n))(dataFormat_taux)).each(function(d, index) {
+
+                d3.select(this).selectAll("rect").data(function(d) {
+                  return d;
+                }).each(function(e, i) {
+
                   d3.select(this).transition(t)
                     .attr("x", function() {
                       return x(i) + (index) * x.bandwidth() / 2 + x.bandwidth() / 8
@@ -702,14 +710,29 @@
                     })
                     .transition(t).delay(500)
                     .attr("y", function(d) {
-                      return height / 2 - (y_bis(e[1] - e[0]));
+                      console.log(d[1] - d[0])
+                      return height / 2 - y_bis(d[1] - d[0]);
                     })
                     .attr("height", function(d) {
-                      return y_bis(e[1] - e[0]);
+                      return y_bis(d[1] - d[0]);
                     })
-                } else {
+
+                })
+              })
+            } else {
+              svg_histogramme.select('#yAxisLabel').text("Effectif")
+
+              svg_histogramme.selectAll("#yAxis")
+                .call(d3.axisLeft(y));
+              svg_histogramme.select("#rects").selectAll("g").data(d3.stack().keys(d3.range(n))(dataFormat)).each(function(d, index) {
+
+                d3.select(this).selectAll("rect").data(function(d) {
+                  return d;
+                }).each(function(e, i) {
+
                   d3.select(this).transition()
                     .attr("y", function(d) {
+
                       return y(d[1]);
                     })
                     .attr("height", function(d) {
@@ -719,13 +742,15 @@
                     .attr("width", function() {
                       return x.bandwidth()
                     })
-                    //                                 .transition(t)
                     .attr("x", function() {
                       return x(i)
                     })
-                }
+
+                })
               })
-            })
+
+            }
+
             is_stacked = !is_stacked;
           })
         }
