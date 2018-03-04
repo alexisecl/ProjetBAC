@@ -45,7 +45,7 @@ This GitHub gathers different files in the format <a href="http://geojson.org/">
 
 Collaborative work divided into four design sheets has allowed us to guide our work to achieve the desired results. You will find more details of our approach in French <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Here </a>
 <figure>
-<p align="center"> <img src="/img/designsheet4.jpg" width=80% />
+<p align="center"> <img src="/img/designsheet4.jpg" width=50% />
 </figure>
 <p align="center"> <i>Design sheet n°4 </i> </p>
 
