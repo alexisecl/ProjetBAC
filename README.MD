@@ -40,5 +40,7 @@ This GitHub gathers different files in the format <a href="http://geojson.org/">
  
  ## The working approach
 
-The approach used during the project is available in french on: <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Our proposal </a>
+Collaborative work divided into four design sheets has allowed us to guide our work to achieve the desired results. You will find more details of our approach in French <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Here </a>
+
+
 
