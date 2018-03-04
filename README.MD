@@ -12,21 +12,21 @@ As part of the course "Interactive Data Visualization" supervised by Romain VUIL
 Our tool was created to obtain an overview of the 2016 results. We have worked to create a global and geographical visualization tool, but also a detailed one, with a visual per branch and per staff of each establishment.
 </p>
 
-## Source de données
+## Data Source
 
 <p align=justify>
-Les données utilisées dans le cadre de ce projet sont fournies par le portail open data du gouvernement français et sont disponibles à l'adresse suivante: 
+The data used are freely downloadable on the French government's open data portal and are available at the following address: 
 </p>
 <p align=justify>
 <a href="https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#">https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#</a>
 </p>
 <p align=justify>
-Les données contiennent différents indicateurs de réussite des établissements au baccalauréat dont notamment:
- - Le taux de réussite par filières
- - Les effectifs par filières
- - Le secteur (public/privé)
- - Nom des lycées 
- - Position géographique des lycées
+The data contain various indicators of the success of institutions at the baccalaureate level:
+ -The success rate by sector
+ -Staffing by sector
+ -The sector (public/private)
+ -Name of the secondary schools 
+ -Geographical position of secondary schools
 </p>
 <p align=justify>
  Afin de représenter ces données sur une carte choroplèthe, nous avons récupéré les données géographiques de la France à partir du GitHub suivant: 
