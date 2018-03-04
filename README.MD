@@ -4,7 +4,10 @@
 
 This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the <b> bachelor's degree </b>. A version with 2016 data is hosted on  https://arnaudbru.github.io.
 
-// Image de notre site //
+<figure>
+<p align="center"> <img src="/img/Global.pnj" width=80% />
+</figure>
+<p align="center"> <i>Overview </i> </p>
 
 ## Subject's context
 <p align=justify>
@@ -46,4 +49,17 @@ Collaborative work divided into four design sheets has allowed us to guide our w
 </figure>
 <p align="center"> <i>Design sheet n°4 </i> </p>
 
+ ## The visualization tool
+ 
+Our visualization tool is a tool divided into three parts. First of all we find a choroplèthe map allowing to visualize the success rate in France, by choosing one of the parameters  :
+<ul>
+  <li>  <b> TFC </b> : Success rate for all sectors combined </li>
+  <li> <b> S </b> : Success rate of the scientific sector </li>
+  <li> <b> L </b> : Success rate of the literacy sector </li>
+  <li> <b> ES </b> : Success rate of the economical sector </li>
+</ul>
 
+<figure>
+<p align="center"> <img src="/img/Carte.pnj" width=80% />
+</figure>
+<p align="center"> <i>Choropleth Map</i> </p>
