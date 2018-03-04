@@ -54,7 +54,9 @@ Collaborative work divided into four design sheets has allowed us to guide our w
 <p align=justify>
 Our tool is divided into three parts, <b>a choropleth map</b>, <b>scatter plot</b> and a <b>bar chart</b>. The three views provide three points of view to study the data. The map provides a <b>global geographical view</b>, while the bar chart provides a real vision on the <b>number of pupils in public and private schools</b>, and the scatter plot allows a more detailed approach and a <b>comparison of the schools by departments.</b>
 </p>
+
  ### Choropleth Map
+ 
 <p align=justify><b>The choropleth map </b>allows you to visualize the success rate in France, by choosing one of the parameters  :
 </p>
 <ul>
@@ -71,17 +73,17 @@ Our tool is divided into three parts, <b>a choropleth map</b>, <b>scatter plot</
 
  ### Bar Chart
  
-<p align=justify>The bar chart at the top right-hand side of the site makes it possible to compare headcount between private and public establishments, by sector.
+<p align=justify>The<b> bar chart </b>at the top right-hand side of the site makes it possible to compare headcount between private and public establishments, by sector.
 </p>
 <figure>
 <p align="center"> <img src="/img/barchart1.png" width=80% />
 </figure>
 <p align="center"> <i>Bar chart - Numbre of students</i> </p>
 
-With a simple click on this graph it is possible to show the success rate by sector and compare the results between public and private schools.
-Also, a click function on the departments of the map allows you to update the bar chart on the data of the selected department.
+With a simple click on this graph it is possible to <b>show the success rate by sector</b> and compare the results between <b>public and private </b>schools.
+Also, a click function on the departments of the map allows you to <b>update the bar chart on the data of the selected department</b>.
 
 <figure>
 <p align="center"> <img src="/img/barchart2.png" width=80% />
 </figure>
-<p align="center"> <i>Bar chart - Success rat</i> </p>
+<p align="center"> <i>Bar chart - Success rate</i> </p>
