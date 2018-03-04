@@ -52,9 +52,10 @@ Collaborative work divided into four design sheets has allowed us to guide our w
  ## The visualization tool
 
 <p align=justify>
-Our tool is divided into three parts, a choropleth map, scatter plot and a bar chart. The three views provide three points of view to study the data. The map provides a global geographical view, while the bar chart provides a real vision on the number of pupils in public and private schools, and the scatter plot allows a more detailed approach and a comparison of the schools by departments.
+Our tool is divided into three parts, <b>a choropleth map</b>, <b>scatter plot</b> and a <b>bar chart</b>. The three views provide three points of view to study the data. The map provides a <b>global geographical view</b>, while the bar chart provides a real vision on the <b>number of pupils in public and private schools</b>, and the scatter plot allows a more detailed approach and a <b>comparison of the schools by departments.</b>
 </p>
-<p align=justify>The choropleth map allowing to visualize the success rate in France, by choosing one of the parameters  :
+ ### Choropleth Map
+<p align=justify><b>The choropleth map </b>allows you to visualize the success rate in France, by choosing one of the parameters  :
 </p>
 <ul>
   <li>  <b> TFC </b> : Success rate for all sectors combined </li>
@@ -68,5 +69,19 @@ Our tool is divided into three parts, a choropleth map, scatter plot and a bar c
 </figure>
 <p align="center"> <i>Choropleth Map</i> </p>
 
-<p align=justify>The choropleth map allowing to visualize the success rate in France, by choosing one of the parameters  :
+ ### Bar Chart
+ 
+<p align=justify>The bar chart at the top right-hand side of the site makes it possible to compare headcount between private and public establishments, by sector.
 </p>
+<figure>
+<p align="center"> <img src="/img/Barchart1.png" width=80% />
+</figure>
+<p align="center"> <i>Bar chart - Numbre of students</i> </p>
+
+With a simple click on this graph it is possible to show the success rate by sector and compare the results between public and private schools.
+Also, a click function on the departments of the map allows you to update the bar chart on the data of the selected department.
+
+<figure>
+<p align="center"> <img src="/img/Barchart2.png" width=80% />
+</figure>
+<p align="center"> <i>Bar chart - Success rat</i> </p>
