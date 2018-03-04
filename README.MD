@@ -1,13 +1,12 @@
 # Data visualization of the bachelor's degree in metropolitan France
 
 <ul id="navigation"> 
-<li><a href="#" title="aller à la section 1">item1</a></li> 
+<li><a href="" title="aller à la section 1">What is this</a></li> 
 
-<li><a href="#" title="aller à la section 2">item2</a></li> 
-<li><a href="#" title="aller à la section 3">item3</a></li> 
-<li><a href="#" title="aller à la section 4">item4</a></li> 
-
-<li><a href="#" title="aller à la section 5">item5</a></li> 
+<li><a href="#" title="aller à la section 2">Subject's context</a></li> 
+<li><a href="#" title="aller à la section 3">Data Sources</a></li> 
+<li><a href="#" title="aller à la section 4">The working approach</a></li> 
+<li><a href="#" title="aller à la section 5">The visualization tool</a></li> 
 </ul> 
 
 ## What is this ?
@@ -25,7 +24,7 @@ As part of the course <b> Interactive Data Visualization </b> supervised by <b>R
 Our tool was created to obtain an <b>overview of the 2016 results</b>. We have worked to create a <b>global and geographical visualization</b> tool, but also a detailed one, with a <b>visual per branch and per staff of each establishment</b>.
 </p>
 
-## Data Source
+## Data Sources
 
 <p align=justify>
 The results data of resulats used are freely downloadable on the French government's open data portal and are available at the following address: 
