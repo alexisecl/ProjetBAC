@@ -40,5 +40,5 @@ This GitHub gathers different files in the format <a href="http://geojson.org/">
  
  ## The working approach
 
-Les détails de notre proposition est détaillé au lien ci après : <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Notre proposition </a>
+The approach used during the project is available in french on: <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Our proposal </a>
 
