@@ -1,4 +1,4 @@
-# Projet de cartographie des résultats du baccalauréat 2016 en France métropolitaine
+# Data visualization of the bachelor's degree in metropolitan France
 
 ## Contexte du projet
 <p align=justify>
