@@ -1,5 +1,7 @@
 # Data visualization of the bachelor's degree in metropolitan France
 
+## Table of contents
+
 <ul id="navigation"> 
 <li><a href="" title="aller à la section 1">What is this</a></li> 
 
