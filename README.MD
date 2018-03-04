@@ -2,7 +2,7 @@
 
 ## What is this ?
 
-This is a script created by Arnaud Brugière ( https://github.com/ArnaudBru ), Luca Guéry ( https://github.com/guegzz ) et Aurélien VIRELLO ( https://github.com/AurelienVirello ), allow to visualize results of the bachelor's degree. A version with 2016 data is hosted on  https://arnaudbru.github.io.
+This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the bachelor's degree. A version with 2016 data is hosted on  https://arnaudbru.github.io.
 
 // Image de notre site //
 
