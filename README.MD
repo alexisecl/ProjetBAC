@@ -22,11 +22,13 @@ The data used are freely downloadable on the French government's open data porta
 </p>
 <p align=justify>
 The data contain various indicators of the success of institutions at the baccalaureate level :
-- The success rate by sector
-- Staffing by sector
-- The sector (public/private)
-- Name of the secondary schools 
-- Geographical position of secondary schools
+<ul>
+  <li> The success rate by sector   </li>
+  <li> Staffing by sector  </li>
+  <li> The sector (public/private)  </li>
+  <li> Name of the secondary schools   </li>
+  <li> Geographical position of secondary schools  </li>
+</ul>
 </p>
 <p align=justify>
  Afin de représenter ces données sur une carte choroplèthe, nous avons récupéré les données géographiques de la France à partir du GitHub suivant: 
