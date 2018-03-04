@@ -65,7 +65,7 @@ Our tool is divided into three parts, <b>a choropleth map</b>, <b>scatter plot</
 </ul>
 
 <figure>
-<p align="center"> <img src="/img/Carte.png" width=80% />
+<p align="center"> <img src="/img/Carte.png" width=50% />
 </figure>
 <p align="center"> <i>Choropleth Map</i> </p>
 
