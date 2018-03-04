@@ -2,7 +2,7 @@
 
 ## What is this ?
 
-This is a script created by Arnaud Brugière <a href="(https://github.com/ArnaudBru)</a>
+This is a script created by Arnaud Brugière <a ( https://github.com/ArnaudBru )</a>
 
 ## Contexte du projet
 <p align=justify>
