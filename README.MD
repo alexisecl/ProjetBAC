@@ -21,12 +21,12 @@ The data used are freely downloadable on the French government's open data porta
 <a href="https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#">https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#</a>
 </p>
 <p align=justify>
-The data contain various indicators of the success of institutions at the baccalaureate level:
- -The success rate by sector
- -Staffing by sector
- -The sector (public/private)
- -Name of the secondary schools 
- -Geographical position of secondary schools
+The data contain various indicators of the success of institutions at the baccalaureate level :
+ - The success rate by sector
+ - Staffing by sector
+ - The sector (public/private)
+ - Name of the secondary schools 
+ - Geographical position of secondary schools
 </p>
 <p align=justify>
  Afin de représenter ces données sur une carte choroplèthe, nous avons récupéré les données géographiques de la France à partir du GitHub suivant: 
