@@ -8,7 +8,8 @@
 <li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#data-sources" >Data Sources</a></li> 
 <li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#the-working-approach" >The working approach</a></li> 
 <li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#the-visualization-tool" >The visualization tool</a></li> 
-<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#the-visualization-tool" >Video</a></li> 
+
+<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#video" >Video</a></li> 
 </ol> 
 
 ## What is this ?
