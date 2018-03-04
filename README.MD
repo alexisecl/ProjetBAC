@@ -42,8 +42,3 @@ This GitHub gathers different files in the format <a href="http://geojson.org/">
 
 Les détails de notre proposition est détaillé au lien ci après : <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Notre proposition </a>
 
-## Auteurs
-
-<p> Arnaud BRUGIERE</p>
-<p> Luca  GUÉRY </p>
-<p> Aurélien VIRELLO </p>
