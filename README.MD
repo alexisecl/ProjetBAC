@@ -103,3 +103,13 @@ Also, a click function on the departments of the map allows you to <b>update the
 <p align="center"> <img src="/img/scatter2.png" width=60% />
 </figure>
 <p align="center"> <i>Scatter plot</i> </p>
+
+ ## Presentation video
+ 
+  <p align=justify>
+  You can view a video presentation of the visualization tool on the Youtube platform by clicking <a href="XXX"> Here </a>.
+  </p>
+    <p align=justify>
+This video presents the possibilities of the tool and some trends and peculiarities of the 2016 results.
+</p>
+ 
