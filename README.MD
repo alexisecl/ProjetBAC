@@ -74,7 +74,7 @@ Our tool is divided into three parts, <b>a choropleth map</b>, <b>scatter plot</
 <p align=justify>The bar chart at the top right-hand side of the site makes it possible to compare headcount between private and public establishments, by sector.
 </p>
 <figure>
-<p align="center"> <img src="/img/Barchart1.png" width=80% />
+<p align="center"> <img src="/img/barchart1.png" width=80% />
 </figure>
 <p align="center"> <i>Bar chart - Numbre of students</i> </p>
 
@@ -82,6 +82,6 @@ With a simple click on this graph it is possible to show the success rate by sec
 Also, a click function on the departments of the map allows you to update the bar chart on the data of the selected department.
 
 <figure>
-<p align="center"> <img src="/img/Barchart2.png" width=80% />
+<p align="center"> <img src="/img/barchart2.png" width=80% />
 </figure>
 <p align="center"> <i>Bar chart - Success rat</i> </p>
