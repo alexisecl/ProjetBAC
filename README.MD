@@ -2,13 +2,13 @@
 
 ## Table of contents
 
-<ul id="navigation"> 
+<ol id="navigation"> 
 <li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#what-is-this-" t>What is this</a></li> 
-<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#what-is-this-">Subject's context</a></li> 
-<li><a href="#" >Data Sources</a></li> 
-<li><a href="#" >The working approach</a></li> 
-<li><a href="#" >The visualization tool</a></li> 
-</ul> 
+<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#subjects-context">Subject's context</a></li> 
+<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#data-sources" >Data Sources</a></li> 
+<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#the-working-approach" >The working approach</a></li> 
+<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#the-visualization-tool" >The visualization tool</a></li> 
+</ol> 
 
 ## What is this ?
 
@@ -114,7 +114,7 @@ Also, a click function on the departments of the map allows you to <b>update the
 </figure>
 <p align="center"> <i>Scatter plot</i> </p>
 
- ## Presentation video
+ ## Video
  
   <p align=justify>
   You can view a video presentation of the visualization tool on the Youtube platform by clicking <a href="XXX"> Here </a>.
