@@ -84,7 +84,7 @@ With a simple click on this graph it is possible to <b>show the success rate by 
 Also, a click function on the departments of the map allows you to <b>update the bar chart on the data of the selected department</b>.
 
 <figure>
-<p align="center"> <img src="/img/barchart2.png" width=80% />
+<p align="center"> <img src="/img/barchart2.png" width=60% />
 </figure>
 <p align="center"> <i>Bar chart - Success rate</i> </p>
 
@@ -92,7 +92,7 @@ Also, a click function on the departments of the map allows you to <b>update the
  
  <p align=justify>The  <b>scatter plot </b> allows a finer approach per high school. Point monitoring allows you to  <b>visualize the high school and its success rate </b>. 
  <figure>
-<p align="center"> <img src="/img/scatter.png" width=50% />
+<p align="center"> <img src="/img/scatter.png" width=60% />
 </figure>
 <p align="center"> <i>Scatter plot</i> </p>
  
@@ -100,6 +100,6 @@ Also, a click function on the departments of the map allows you to <b>update the
  A memory function allows you to store the display of high schools in  <b>5 departments simultaneously </b>.
 </p>
 <figure>
-<p align="center"> <img src="/img/scatter2.png" width=50% />
+<p align="center"> <img src="/img/scatter2.png" width=60% />
 </figure>
 <p align="center"> <i>Scatter plot</i> </p>
