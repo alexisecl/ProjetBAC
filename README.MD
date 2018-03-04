@@ -87,3 +87,7 @@ Also, a click function on the departments of the map allows you to <b>update the
 <p align="center"> <img src="/img/barchart2.png" width=80% />
 </figure>
 <p align="center"> <i>Bar chart - Success rate</i> </p>
+
+ ### Scatter plot
+ 
+ 
