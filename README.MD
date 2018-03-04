@@ -5,7 +5,7 @@
 This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the <b> bachelor's degree </b>. A version with 2016 data is hosted on  https://arnaudbru.github.io.
 
 <figure>
-<p align="center"> <img src="/img/Global.pnj" width=80% />
+<p align="center"> <img src="/img/Global.png" width=80% />
 </figure>
 <p align="center"> <i>Overview </i> </p>
 
@@ -60,6 +60,6 @@ Our visualization tool is a tool divided into three parts. First of all we find 
 </ul>
 
 <figure>
-<p align="center"> <img src="/img/Carte.pnj" width=80% />
+<p align="center"> <img src="/img/Carte.png" width=80% />
 </figure>
 <p align="center"> <i>Choropleth Map</i> </p>
