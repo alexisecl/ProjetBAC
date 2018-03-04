@@ -1,5 +1,15 @@
 # Data visualization of the bachelor's degree in metropolitan France
 
+<ul id="navigation"> 
+<li><a href="#" title="aller à la section 1">item1</a></li> 
+
+<li><a href="#" title="aller à la section 2">item2</a></li> 
+<li><a href="#" title="aller à la section 3">item3</a></li> 
+<li><a href="#" title="aller à la section 4">item4</a></li> 
+
+<li><a href="#" title="aller à la section 5">item5</a></li> 
+</ul> 
+
 ## What is this ?
 
 This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the <b> bachelor's degree </b>. A version with 2016 data is hosted on  https://arnaudbru.github.io.
