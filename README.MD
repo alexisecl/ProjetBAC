@@ -90,4 +90,16 @@ Also, a click function on the departments of the map allows you to <b>update the
 
  ### Scatter plot
  
+ <p align=justify>The  <b>scatter plot </b> allows a finer approach per high school. Point monitoring allows you to  <b>visualize the high school and its success rate </b>. 
+ <figure>
+<p align="center"> <img src="/img/scatter.png" width=50% />
+</figure>
+<p align="center"> <i>Scatter plot</i> </p>
  
+  <p align=justify>
+ A memory function allows you to store the display of high schools in  <b>5 departments simultaneously </b>.
+</p>
+<figure>
+<p align="center"> <img src="/img/scatter2.png" width=50% />
+</figure>
+<p align="center"> <i>Scatter plot</i> </p>
