@@ -1,5 +1,9 @@
 # Data visualization of the bachelor's degree in metropolitan France
 
+## What is this ?
+
+This is a script created by Arnaud Brugière <a href="(https://github.com/ArnaudBru)</a>
+
 ## Contexte du projet
 <p align=justify>
 Dans le cadre du cours "Visualisation Interactive de Données" encadré par Romain VUILLEMOT au sein de l'école Centrale de Lyon, nous mettons en place un projet de visualisation interactive des résultats du baccalauréat 2016 en France Métropolitaine dans les lycées d'enseignement général et technologique, au travers d'une carte choroplèthe.
