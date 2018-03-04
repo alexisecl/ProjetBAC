@@ -4,9 +4,12 @@
 
 This is a script created by Arnaud Brugière ( https://github.com/ArnaudBru ), Luca Guéry ( https://github.com/guegzz ) et Aurélien VIRELLO ( https://github.com/AurelienVirello ), allow to visualize results of the bachelor's degree. A version with 2016 data is hosted on  https://arnaudbru.github.io.
 
-## Contexte du projet
+// Image de notre site //
+
+## Subject's context
 <p align=justify>
-Dans le cadre du cours "Visualisation Interactive de Données" encadré par Romain VUILLEMOT au sein de l'école Centrale de Lyon, nous mettons en place un projet de visualisation interactive des résultats du baccalauréat 2016 en France Métropolitaine dans les lycées d'enseignement général et technologique, au travers d'une carte choroplèthe.
+As part of the course "Interactive Data Visualization" supervised by Romain VUILLEMOT at the Ecole Centrale de Lyon, we have set up an interactive visualization project for the results of the 2016 baccalaureate degree in metropolitan France in general and technological secondary schools.
+Our tool was created to obtain an overview of the 2016 results. We have worked to create a global and geographical visualization tool, but also a detailed one, with a visual per branch and per staff of each establishment.
 </p>
 
 ## Source de données
