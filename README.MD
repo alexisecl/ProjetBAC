@@ -50,8 +50,12 @@ Collaborative work divided into four design sheets has allowed us to guide our w
 <p align="center"> <i>Design sheet n°4 </i> </p>
 
  ## The visualization tool
- 
-Our visualization tool is a tool divided into three parts. First of all we find a choroplèthe map allowing to visualize the success rate in France, by choosing one of the parameters  :
+
+<p align=justify>
+Our tool is divided into three parts, a choropleth map, scatter plot and a bar chart. The three views provide three points of view to study the data. The map provides a global geographical view, while the bar chart provides a real vision on the number of pupils in public and private schools, and the scatter plot allows a more detailed approach and a comparison of the schools by departments.
+</p>
+<p align=justify>The choropleth map allowing to visualize the success rate in France, by choosing one of the parameters  :
+</p>
 <ul>
   <li>  <b> TFC </b> : Success rate for all sectors combined </li>
   <li> <b> S </b> : Success rate of the scientific sector </li>
@@ -63,3 +67,6 @@ Our visualization tool is a tool divided into three parts. First of all we find 
 <p align="center"> <img src="/img/Carte.png" width=80% />
 </figure>
 <p align="center"> <i>Choropleth Map</i> </p>
+
+<p align=justify>The choropleth map allowing to visualize the success rate in France, by choosing one of the parameters  :
+</p>
