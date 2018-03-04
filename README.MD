@@ -15,7 +15,7 @@ Our tool was created to obtain an <b>overview of the 2016 results</b>. We have w
 ## Data Source
 
 <p align=justify>
-The data used are freely downloadable on the French government's open data portal and are available at the following address: 
+The results data of resulats used are freely downloadable on the French government's open data portal and are available at the following address: 
 </p>
 <p align=justify>
 <a href="https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#">https://www.data.gouv.fr/fr/datasets/indicateurs-de-resultat-des-lycees-denseignement-general-et-technologique/#</a>
@@ -31,14 +31,14 @@ The data contain various indicators of the success of institutions at the baccal
 </ul>
 </p>
 <p align=justify>
- Afin de représenter ces données sur une carte choroplèthe, nous avons récupéré les données géographiques de la France à partir du GitHub suivant: 
- 
+
+Geographic data are also available for free download on : 
 <a href="https://github.com/gregoiredavid/france-geojson">https://github.com/gregoiredavid/france-geojson</a>
 
-Ce GitHub regroupe différents fichiers au format <a href="http://geojson.org/">GeoJSON</a> représentant tout ou partie du territoire français  selon différents découpages. Dans le cadre de notre projet, nous nous intéressons à la France métropolitaine avec un découpage par département.
+This GitHub gathers different files in the format <a href="http://geojson.org/">GeoJSON</a> representing all or part of the French territory according to different divisions.The display uses a breakdown by department.
  </p>
  
- ## Notre proposition
+ ## The working approach
 
 Les détails de notre proposition est détaillé au lien ci après : <a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/PROPOSAL.MD"> Notre proposition </a>
 
