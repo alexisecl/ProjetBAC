@@ -2,14 +2,14 @@
 
 ## What is this ?
 
-This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the bachelor's degree. A version with 2016 data is hosted on  https://arnaudbru.github.io.
+This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the <b> bachelor's degree </b>. A version with 2016 data is hosted on  https://arnaudbru.github.io.
 
 // Image de notre site //
 
 ## Subject's context
 <p align=justify>
-As part of the course "Interactive Data Visualization" supervised by Romain VUILLEMOT at the Ecole Centrale de Lyon, we have set up an interactive visualization project for the results of the 2016 baccalaureate degree in metropolitan France in general and technological secondary schools.
-Our tool was created to obtain an overview of the 2016 results. We have worked to create a global and geographical visualization tool, but also a detailed one, with a visual per branch and per staff of each establishment.
+As part of the course <b> Interactive Data Visualization </b> supervised by <b>Romain Vuillemot </b> at the Ecole Centrale de Lyon, we have set up an interactive visualization project for the <b>results of the 2016 baccalaureate degree in metropolitan France in general and technological secondary schools</b>.
+Our tool was created to obtain an <b>overview of the 2016 results</b>. We have worked to create a <b>global and geographical visualization</b> tool, but also a detailed one, with a <b>visual per branch and per staff of each establishment</b>.
 </p>
 
 ## Data Source
