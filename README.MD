@@ -5,7 +5,7 @@
 <ul id="navigation"> 
 <li><a href="" title="aller à la section 1">What is this</a></li> 
 
-<li><a href="#" title="aller à la section 2">Subject's context</a></li> 
+<li><a href="https://github.com/ArnaudBru/ProjetBAC/blob/master/README.MD#what-is-this-" title="aller à la section 2">Subject's context</a></li> 
 <li><a href="#" title="aller à la section 3">Data Sources</a></li> 
 <li><a href="#" title="aller à la section 4">The working approach</a></li> 
 <li><a href="#" title="aller à la section 5">The visualization tool</a></li> 
