@@ -5,7 +5,7 @@ OK - Uniformiser la langue: Tout en anglais
 
 ## Carte Choroplèthe
 
-Ajout d'une légende  
+OK - Ajout d'une légende  
 Transition entre les cartes
 
 ## Histogramme
@@ -18,4 +18,4 @@ OK - Changer les couleurs -> Des couleurs moins stigmatisantes
 
 OK - Au passage de la souris sur un point, affichage du taux de réussite  
 OK - Couleurs plus contrastantes  
-Bouton reste/Déselection des départements + Retour national
+OK - Bouton reste/Déselection des départements + Retour national -> Cliquer sur un département déjà sélectionné pour le scatter l'enlève du scatter (sauf s'il n'y avait qu'un seul département sélectionné)
