@@ -14,7 +14,7 @@
 
 ## What is this ?
 
-This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) et <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), allow to visualize results of the <b> bachelor's degree </b>. A version with 2016 data is hosted on  https://arnaudbru.github.io.
+This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) and <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ). It allows to visualize results of the <b> bachelor's degree </b>. A version with 2016 datas is hosted on  https://arnaudbru.github.io.
 
 <figure>
 <p align="center"> <img src="/img/Global.png" width=80% />
@@ -78,6 +78,7 @@ Our tool is divided into three parts, <b>a choropleth map</b>, <b>scatter plot</
   <li> <b> ES </b> : Success rate of the economical sector </li>
 </ul>
 
+<p align=justify>By clicking on a department you can actualize the two others visualizations tools on the department datas.</p>
 <figure>
 <p align="center"> <img src="/img/Carte.png" width=50% />
 </figure>
@@ -102,7 +103,7 @@ Also, a click function on the departments of the map allows you to <b>update the
 
  ### Scatter plot
  
- <p align=justify>The  <b>scatter plot </b> allows a finer approach per high school. Point monitoring allows you to  <b>visualize the high school and its success rate </b>. 
+ <p align=justify>The  <b>scatter plot </b> allows a finer approach per high school. Point monitoring allows you to  <b>visualize the high school and its success rate when you have clicked on a department. Otherwise the graph shows national statistic by department. </b>. 
  <figure>
 <p align="center"> <img src="/img/scatter.png" width=60% />
 </figure>
@@ -119,7 +120,7 @@ Also, a click function on the departments of the map allows you to <b>update the
  ## Video
  
   <p align=justify>
-  You can view a video presentation of the visualization tool on the Youtube platform by clicking <a href="XXX"> Here </a>.
+  You can watch a video presentation of the visualization tool on the Youtube platform by clicking <a href="XXX"> here </a>.
   </p>
     <p align=justify>
 This video presents the possibilities of the tool and some trends and peculiarities of the 2016 results.
