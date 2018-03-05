@@ -92,8 +92,14 @@
       background-color: none;
       border-bottom: solid 0.5px;
       border-color: white;
-
     }
+
+    .legend {
+		position: fixed;
+		bottom: 20px;
+		left: 20px;
+		background-color: transparent;
+	}
 
     #xAxis,
     #yAxis line {
@@ -326,7 +332,7 @@
         "translate(" + (margin.left + 30) + "," + (margin.top) + ")");
 
     //Définition de notre path pour la carte de la France
-    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(width*6.2)
+    var projection = d3.geoConicConformal().center([2.454071, 46.279229]).scale(Math.min(height*5.7,width*6.2))
       .translate([(width + margin.left + margin.right) / 2, height / 2 + margin.top + margin.bottom]);
 
     var path = d3.geoPath() // d3.geo.path avec d3 version 3
@@ -398,6 +404,52 @@
 
           var colorScale = d3.scaleLinear().domain([min_reussite, max_reussite]).interpolate(d3.interpolateHcl).range(['#FFEBEE', '#B71C1C']);
 
+			var legend_width = 140, legend_height = 200;
+
+			var key = d3.select("body")
+				.append("svg")
+				.attr("width", legend_width)
+				.attr("height", legend_height)
+				.attr("class", "legend")
+
+
+			var legend = key.append("defs")
+				.append("svg:linearGradient")
+				.attr("id", "gradient")
+				.attr("x1", "100%")
+				.attr("y1", "0%")
+				.attr("x2", "100%")
+				.attr("y2", "100%")
+				.attr("spreadMethod", "pad")
+
+			legend.append("stop")
+				.attr("offset", "0%")
+				.attr("stop-color", '#B71C1C')
+				.attr("stop-opacity", 1);
+				
+			legend.append("stop")
+				.attr("offset", "100%")
+				.attr("stop-color", "#FFEBEE")
+				.attr("stop-opacity", 1);
+
+			key.append("rect")
+				.attr("width", 20)
+				.attr("height", legend_height - 20)
+				.style("fill", "url(#gradient)")
+				.attr("transform", "translate(0,10)");
+
+			var y = d3.scaleLinear()
+				.range([legend_height - 20, 0])
+				.domain([min_reussite, max_reussite]);
+
+			var yAxis = d3.axisRight(y);
+
+			d3.selectAll('#yAxis').remove();
+			key.append("g")
+				.attr("id", "yAxis")
+				.attr("transform", "translate(22,10)")
+				.call(yAxis)
+
           //On initialise la carte choroplèthe avec les données ajoutées plus haut
           //ainsi que tous les events listeners MouseOver,MouseMove, MouseOut, onClick
 
@@ -436,17 +488,17 @@
 
             })
 
-          //On initialise le Titre de la carte choroplèthe
-          d3.select('#labelMap').remove();
-          svg_carte.append('text')
-            .attr('id', 'labelMap')
-            .attr("x", (width + margin.left + margin.right) / 2)
-            .attr("y", 30)
-            .attr("text-anchor", "middle").text("Success rate at the BAC in 2016 in track " + filiere).style("fill", "black")
-            .style("font-family", "Arial")
-            .style("fill", '#CFD8DC')
-            .style("font-size", '1em')
-            .style("font-weight", 'bold');
+	          //On initialise le Titre de la carte choroplèthe
+	          d3.select('#labelMap').remove();
+	          svg_carte.append('text')
+	            .attr('id', 'labelMap')
+	            .attr("x", (width + margin.left + margin.right) / 2)
+	            .attr("y", 30)
+	            .attr("text-anchor", "middle").text("Success rate at the BAC in 2016 in track " + filiere).style("fill", "black")
+	            .style("font-family", "Arial")
+	            .style("fill", '#CFD8DC')
+	            .style("font-size", '1em')
+	            .style("font-weight", 'bold');
 
           //On initialise le Titre du nuage de points
           d3.select('#labelScatter').remove();
@@ -543,7 +595,6 @@
               var mouse = d3.mouse(svg_carte.node()).map(function(d) {
                 return parseInt(d);
               });
-              console.log(d)
               tooltip_scatter_france.classed('hidden', false)
                 .attr('style', 'left:' + mouse[0] +
                   'px; top:' + mouse[1] + "px;")
@@ -808,7 +859,6 @@
                     })
                     .transition(t).delay(500)
                     .attr("y", function(d) {
-                      console.log(d[1] - d[0])
                       return height / 2 - y_bis(d[1] - d[0]);
                     })
                     .attr("height", function(d) {
@@ -895,6 +945,8 @@
             fil = filiere
           }
 
+          var i = dep_clicked.indexOf(dep)
+
 
           d3.select("#scatter").select('#labelScatter').remove()
 
@@ -903,7 +955,6 @@
               return d;
             }
           })
-
 
           d3.select("#scatter").append('text')
             .attr('id', 'labelScatter').attr("x", (width + margin.left + margin.right) / 2)
@@ -915,16 +966,16 @@
             .style("fill", "#CFD8DC")
             .style("font-style", 'italic').text("Success rate per secondary school in track " + filiere + " as a function of enrolment")
 
-          if (data_filtered_total.length < 5 & !dep_clicked.includes(dep)) {
+          if (dep_clicked.includes(dep) && dep_clicked.length > 1) {
+          	data_filtered_total.splice(i,1)
+          } else if (data_filtered_total.length < 5 & !dep_clicked.includes(dep)) {
             data_filtered_total.push(data_filtered);
-          } else {
-            if (!dep_clicked.includes(dep)) {
-              data_filtered_total.shift()
-              data_filtered_total.push(data_filtered);
-            }
+          } else if (!dep_clicked.includes(dep)) {
+            data_filtered_total.shift()
+            data_filtered_total.push(data_filtered);
           }
           merged = [].concat.apply([], data_filtered_total);
-          console.log('function', merged)
+          //console.log('function', merged)
 
           min_eff = d3.min(merged, function(d) {
             return +d["Effectif"];
@@ -955,19 +1006,27 @@
           svg_scatter.selectAll("#yAxis")
             .call(d3.axisLeft(yScale));
 
-          if (!dep_clicked.includes(dep) & dep_clicked.length < 5) {
+          if (dep_clicked.includes(dep) && dep_clicked.length > 1) {
+          	dep_clicked.splice(i,1)
+          	dep_removed = dep
+          	delete dictColorDep[dep_removed];
+            var color_removed = colorSet.splice(i,1)
+            //colorSet.push(color_removed)
+          } else if (!dep_clicked.includes(dep) & dep_clicked.length < 5) {
             dep_clicked.push(dep)
-            dictColorDep[dep] = colorSet_init[data_filtered_total.length - 1]
-            colorSet.push(colorSet_init[data_filtered_total.length - 1])
-          } else {
-            if (!dep_clicked.includes(dep)) {
-              dep_removed = dep_clicked.shift();
-              delete dictColorDep[dep_removed];
-              dep_clicked.push(dep)
-              var color_removed = colorSet.shift()
-              colorSet.push(color_removed)
-              dictColorDep[dep] = color_removed
-            }
+            dictColorDep[dep] = colorSet_init.find( function( el ) {
+            	if(!Object.values(dictColorDep).includes(el)) { 
+            		return el
+            	}
+			} );
+            colorSet.push(dictColorDep[dep])
+          } else if (!dep_clicked.includes(dep)) {
+            dep_removed = dep_clicked.shift();
+            delete dictColorDep[dep_removed];
+            dep_clicked.push(dep)
+            var color_removed = colorSet.shift()
+            colorSet.push(color_removed)
+            dictColorDep[dep] = color_removed
           }
 
           svg_scatter.select('#france').selectAll(".point").remove();
