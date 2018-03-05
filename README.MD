@@ -1,4 +1,4 @@
-# Data visualization of the bachelor's degree in metropolitan France
+# Data visualizations of the bachelor's degree results in metropolitan France
 
 ## Table of contents
 
@@ -14,7 +14,7 @@
 
 ## What is this ?
 
-This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) and <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ). It allows to visualize results of the <b> bachelor's degree </b>. A version with 2016 datas is hosted on  https://arnaudbru.github.io.
+This is a script created by <b> Arnaud Brugière</b> ( https://github.com/ArnaudBru ), <b>Luca Guéry</b> ( https://github.com/guegzz ) and <b>Aurélien VIRELLO</b> ( https://github.com/AurelienVirello ), using the D3.js library. It allows you to visualize results of the <b> bachelor's degree </b>. A version with 2016 datas is hosted on  https://arnaudbru.github.io.
 
 <figure>
 <p align="center"> <img src="/img/Global.png" width=80% />
