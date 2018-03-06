@@ -102,17 +102,20 @@
 	}
 
     #xAxis,
-    #yAxis line {
+    #yAxis line,
+    #yAxis_legend line {
       stroke: #CFD8DC;
     }
 
     #xAxis,
-    #yAxis path {
+    #yAxis path,
+    #yAxis_legend path {
       stroke: #CFD8DC;
     }
 
     #xAxis,
-    #yAxis text {
+    #yAxis text,
+    #yAxis_legend text {
       fill: #CFD8DC;
     }
 
@@ -444,9 +447,9 @@
 
 			var yAxis = d3.axisRight(y);
 
-			d3.selectAll('#yAxis').remove();
+			d3.selectAll('#yAxis_legend').remove();
 			key.append("g")
-				.attr("id", "yAxis")
+				.attr("id", "yAxis_legend")
 				.attr("transform", "translate(22,10)")
 				.call(yAxis)
 
