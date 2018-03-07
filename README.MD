@@ -122,6 +122,10 @@ Also, a click function on the departments of the map allows you to <b>update the
   <p align=justify>
   You can watch a video presentation of the visualization tool on the Youtube platform by clicking <a href="https://www.youtube.com/watch?v=gIOnshkxGms&feature=youtu.be"> here </a>.
   </p>
+  
+  <p align="center"> <img src="/img/Capture.png" width=80% />
+</figure>
+<p align="center"> <i>Youtube Thumbnail</i> </p>
     <p align=justify>
 This video presents the possibilities of the tool and some trends and peculiarities of the 2016 results.
 </p>
