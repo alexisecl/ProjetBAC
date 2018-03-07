@@ -1,21 +1,24 @@
-# Suggestions recensées
+Following the presentation of our visualization tool to other students, we were given feedback on possible improvements to our representations. In this document we list the ones we have produced.
+
 ## Global
 
-OK - Uniformiser la langue: Tout en anglais
+Uniforming the language: All in English - DONE
 
-## Carte Choroplèthe
+## Choropleth map
 
-OK - Ajout d'une légende  
-Transition entre les cartes
+Add legend - DONE
 
-## Histogramme
-
-Légende interactive (filtrer par Public/Privé)  
-Bouton de transition stacked/group bar chart  
-OK - Changer les couleurs -> Des couleurs moins stigmatisantes  
+## Histogram
+  
+Changing colors -> Less stigmatizing colors - DONE
 
 ## Scatterplot
 
-OK - Au passage de la souris sur un point, affichage du taux de réussite  
-OK - Couleurs plus contrastantes  
-OK - Bouton reste/Déselection des départements + Retour national -> Cliquer sur un département déjà sélectionné pour le scatter l'enlève du scatter (sauf s'il n'y avait qu'un seul département sélectionné)
+With the mouse over a point, display of the success rate - DONE 
+More contrasting colours - DONE
+Select/Unselect Departments -> By clicking on a department already selected, it removes it from the scatterplot (unless there was only one department selected) - DONE
+
+## To be done
+
+- A button to reset all graphs at the national level
+- A button for transition in the grouped/bar chart
